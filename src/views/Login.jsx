@@ -35,14 +35,21 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ml:4}}>
+        <h1>CS <br /> Admin <br /> System</h1>
+      </Box>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
+          component="button"
           sx={{
-            marginTop: 8,
+            marginTop: 2,
+            ml: 8,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            padding: 'inherit',
+            // alignItems: 'center',
+            // border: '1px #BEC6CA',
           }}
         >
           <Typography component="h1" variant="h5">
@@ -51,6 +58,7 @@ export default function Login() {
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
+              variant='standard'
               required
               fullWidth
               id="email"
@@ -61,6 +69,7 @@ export default function Login() {
             />
             <TextField
               margin="normal"
+              variant='standard'
               required
               fullWidth
               name="password"
@@ -76,12 +85,28 @@ export default function Login() {
             <Button
               type="submit"
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, bgcolor: '#63B1A9'}}
             >
               Login
             </Button>
           </Box>
         </Box>
+
+        <Box
+          sx={{
+            marginTop: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            bgcolor: '#5D737E',
+            color: '#fff',
+            padding: 'inherit',
+          }}
+        >
+          <Typography component="h2" variant="h6">
+            Sing In <br /> <h5>Use your Account to continue.</h5>
+          </Typography>
+        </Box>
+
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
