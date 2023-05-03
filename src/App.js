@@ -1,15 +1,26 @@
 import './App.css';
 
 import {Routes, Route} from 'react-router-dom'
-import Home from './views/contents/Data'
+import Box from '@mui/material/Box';
+import Main from './views/Main';
+import SideList from './components/SideList';
+import TopBar from './components/TopBar';
 
 function App() {
   return (
-    <div className="App">
+    <Box sx={{ display: 'flex' }}>
+      <Box component="side">
+      <SideList></SideList>
+      </Box>
+      
+      <Box component="main" sx={{ flexGrow: 1 }}>
+      <TopBar></TopBar>
       <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </Box>
+    </Box>
+    
   );
 }
 
