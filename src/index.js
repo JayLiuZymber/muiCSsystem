@@ -1,21 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Provider from 'react-redux';
+import store from './store/index';
+
 import App from './App';
 import Login from './views/Login';
 import PageNotFound from './views/404hit';
 // import PageNotFound from './views/404neon';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Provider>
   </BrowserRouter>,
 );
 

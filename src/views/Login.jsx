@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useState} from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +13,11 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+import { useNavigate, useLocation } from "react-router-dom";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import { setUserInfo } from "../store/mainSlice";
 
 function Copyright(props) {
   return (
@@ -29,13 +35,39 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const [values, setValues] = useState({
+    cs_id: "",
+    password: "",
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("cs_id"),
+      csid: data.get("cs_id"),
       password: data.get("password"),
     });
+  };
+  
+
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const login = () => {
+    dispatch(
+      setUserInfo({
+        // access_token: "f6ddee55-4168-11ec-9d26-02691930da90",
+        // company: "testcc",
+        // email: "test1",
+        name: "cs2",
+        cs_id: "cs-111111",
+      })
+    );
+
+    if(state == null)
+      navigate("/");
+    else
+      navigate(state.from.pathname);
   };
 
   return (
@@ -64,8 +96,8 @@ export default function Login() {
           flexDirection: "column",
           bgcolor: "#5D737E",
           color: "#fff",
-
-          height: "80%",
+          // height: "70%",
+          height: 300,
         }}
       >
         <Typography component="h2" variant="h6">
@@ -80,7 +112,7 @@ export default function Login() {
         sx={{
           position: "absolute",
           top: 160,
-          marginTop: 2,
+          marginTop: 4,
           marginLeft: 16,
           display: "flex",
           flexDirection: "column",
@@ -88,12 +120,14 @@ export default function Login() {
           // border: '1px #BEC6CA',
           width: 300,
           maxWidth: "40%",
+          height: 400,
         }}
       >
         <Typography component="h1" variant="h5">
           LOG IN
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             variant="standard"
