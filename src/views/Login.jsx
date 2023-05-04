@@ -40,20 +40,14 @@ export default function Login() {
     password: "",
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      csid: data.get("cs_id"),
-      password: data.get("password"),
-    });
-  };
-
-
+  // router
   const { state } = useLocation();
+  console.log('state', state);
   const navigate = useNavigate();
+  // redux
   const dispatch = useDispatch();
   const login = () => {
+    // console.log('>login')
     dispatch(
       setUserInfo({
         // access_token: "f6ddee55-4168-11ec-9d26-02691930da90",
@@ -68,6 +62,17 @@ export default function Login() {
       navigate("/");
     else
       navigate(state.from.pathname);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      cs_id: data.get("cs_id"),
+      password: data.get("password"),
+    });
+
+    setValues({ ...values, [data]: event.target.value });
   };
 
   return (
@@ -161,6 +166,7 @@ export default function Login() {
             type="submit"
             variant="contained"
             sx={{ mt: 3, mb: 2, bgcolor: "#63B1A9" }}
+            onClick={login()}
           >
             Login
           </Button>
