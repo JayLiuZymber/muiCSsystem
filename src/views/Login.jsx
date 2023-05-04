@@ -13,6 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import FormHelperText from '@mui/material/FormHelperText';
 
 import { useNavigate, useLocation } from "react-router-dom";
 // Redux
@@ -36,16 +37,18 @@ const theme = createTheme();
 
 export default function Login() {
   const [values, setValues] = useState({
+    access_token: "",
     cs_id: "",
     password: "",
   });
 
   // router
   const { state } = useLocation();
-  console.log('state', state);
+  // console.log('state', state);
   const navigate = useNavigate();
   // redux
   const dispatch = useDispatch();
+
   const login = () => {
     // console.log('>login')
     dispatch(
@@ -64,15 +67,25 @@ export default function Login() {
       navigate(state.from.pathname);
   };
 
-  const handleSubmit = (event) => {
-    // event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   cs_id: data.get("cs_id"),
-    //   password: data.get("password"),
-    // });
+  const handleChange = (prop) => (event) => {
+    // console.log('event.target.value', event.target.value);
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
-    // setValues({ ...values, [data]: event.target.value });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      cs_id: data.get("cs_id"),
+      password: data.get("password"),
+    });
+    // console.log(values);
+
+    const csid = data.get("cs_id");
+    const pw = data.get("password");
+    if( csid !== '' && pw !== ''){
+      login();
+    }
   };
 
   return (
@@ -146,7 +159,9 @@ export default function Login() {
             name="cs_id"
             autoComplete="cs_id"
             autoFocus
+            onChange={handleChange("cs_id")}
           />
+          {/* <FormHelperText id="component-error-text">Error</FormHelperText> */}
           <TextField
             margin="normal"
             variant="standard"
@@ -157,6 +172,7 @@ export default function Login() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handleChange("password")}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -166,7 +182,6 @@ export default function Login() {
             type="submit"
             variant="contained"
             sx={{ mt: 3, mb: 2, bgcolor: "#63B1A9" }}
-            onClick={login()}
           >
             Login
           </Button>
