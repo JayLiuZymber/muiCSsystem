@@ -48,7 +48,7 @@ export default function Login() {
       password: data.get("password"),
     });
   };
-  
+
 
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -100,12 +100,15 @@ export default function Login() {
           height: 300,
         }}
       >
-        <Typography component="h2" variant="h6">
-          <h2> Sing In </h2>
-          <h5>Use your Account to continue.</h5>
+        <br /><br /><br />
+        <Typography component="h1" variant="h4">
+          Sing In
+        </Typography>
+        <Typography component="h1" variant="h6">
+          Use your Account to continue.
         </Typography>
       </Box>
-      
+
       {/* Login box */}
       <Box
         component="button"
