@@ -1,4 +1,4 @@
-
+import React from 'react';
 import App from './App';
 import Login from './views/Login';
 import PageNotFound from './views/404hit';
@@ -12,12 +12,12 @@ import {
   useLocation,
 } from "react-router-dom";
 import Cookie from "js-cookie";
-  
+
 function isAuth() {
   return (
-      Cookie.get("access_token") !== null &&
-      Cookie.get("access_token") !== "" &&
-      Cookie.get("access_token") !== undefined
+    Cookie.get("access_token") !== null &&
+    Cookie.get("access_token") !== "" &&
+    Cookie.get("access_token") !== undefined
   );
 }
 
@@ -35,25 +35,24 @@ function RequireAuth({ children }) {
 }
 
 export default function Router() {
-    return (
-      <BrowserRouter>
-        <Routes>
-          {/* <Route
-              path="/"
-              element={
-                <RequireAuth>{" "}
-                  <App />
-                </RequireAuth>
-              }
-            >
-          </Route> */}
-          <Route path="/" element={<App />} />
-          {/* !isAuth() ? not auth : auth */}
-          <Route path="/login"
-            element={!isAuth() ? <Login /> : <Navigate from="/login" to="/" />}/>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              {" "}
+              <App />
+            </RequireAuth>
+          }
+        >
+        </Route>
+        {/* !isAuth() ? not auth : auth */}
+        <Route path="/login"
+          element={!isAuth() ? <Login /> : <Navigate from="/login" to="/" />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-  
