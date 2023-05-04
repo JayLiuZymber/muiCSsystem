@@ -23,12 +23,12 @@ import { setUserInfo } from "../store/mainSlice";
 function Copyright(props) {
   return (
     <Typography
-      variant="body2"
+      variant="h2"
       color="text.secondary"
       align="center"
       {...props}
     >
-      <h2>{"CS System"}</h2>
+      {"CS System"}
     </Typography>
   );
 }
