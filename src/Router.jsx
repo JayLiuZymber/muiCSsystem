@@ -38,8 +38,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
+        <Route path="/"
           element={
             <RequireAuth>
               {" "}

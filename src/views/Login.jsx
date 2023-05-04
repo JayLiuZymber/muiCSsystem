@@ -13,7 +13,6 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import FormHelperText from '@mui/material/FormHelperText';
 
 import { useNavigate, useLocation } from "react-router-dom";
 // Redux
@@ -23,7 +22,7 @@ import { setUserInfo } from "../store/mainSlice";
 function Copyright(props) {
   return (
     <Typography
-      variant="h2"
+      variant="h6"
       color="text.secondary"
       align="center"
       {...props}
@@ -41,6 +40,10 @@ export default function Login() {
     cs_id: "",
     password: "",
   });
+  const [errorTextID, setErrorTextID] = useState([]);
+  const [bFocusID, setFocusID] = useState(false);
+  const [errorTextPassword, setErrorTextPassword] = useState([]);
+  const [bFocusPassword, setFocusPassword] = useState(false);
 
   // router
   const { state } = useLocation();
@@ -53,7 +56,7 @@ export default function Login() {
     // console.log('>login')
     dispatch(
       setUserInfo({
-        // access_token: "f6ddee55-4168-11ec-9d26-02691930da90",
+        access_token: "f6ddee55-4168-11ec-9d26-02691930da90",
         // company: "testcc",
         // email: "test1",
         name: "cs2",
@@ -70,6 +73,16 @@ export default function Login() {
   const handleChange = (prop) => (event) => {
     // console.log('event.target.value', event.target.value);
     setValues({ ...values, [prop]: event.target.value });
+    setErrorTextID([]);
+    setErrorTextPassword([]);
+  };
+
+  const handleFocusID = () => {
+    setFocusID(true);
+  };
+
+  const handleFocusPassword = () => {
+    setFocusPassword(true);
   };
 
   const handleSubmit = (event) => {
@@ -83,6 +96,10 @@ export default function Login() {
 
     const csid = data.get("cs_id");
     const pw = data.get("password");
+    if( csid == '' )
+      setErrorTextID(["CS ID can not empty"]);
+    if( pw == '' )
+      setErrorTextPassword(["Password can not empty"]);
     if( csid !== '' && pw !== ''){
       login();
     }
@@ -150,18 +167,20 @@ export default function Login() {
         <Box
           component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
-            margin="normal"
-            variant="standard"
-            required
-            fullWidth
-            id="email"
-            label="CS ID"
-            name="cs_id"
-            autoComplete="cs_id"
-            autoFocus
-            onChange={handleChange("cs_id")}
-          />
-          {/* <FormHelperText id="component-error-text">Error</FormHelperText> */}
+              margin="normal"
+              variant="standard"
+              required
+              fullWidth
+              id="email"
+              label="CS ID"
+              name="cs_id"
+              autoComplete="cs_id"
+              autoFocus
+              onChange={handleChange("cs_id")}
+              onFocus={handleFocusID}
+              error={bFocusID && Boolean(errorTextID.length)}
+              helperText={bFocusID && errorTextID[0]}
+            />
           <TextField
             margin="normal"
             variant="standard"
@@ -173,6 +192,9 @@ export default function Login() {
             id="password"
             autoComplete="current-password"
             onChange={handleChange("password")}
+            onFocus={handleFocusPassword}
+            error={bFocusPassword && Boolean(errorTextPassword.length)}
+            helperText={bFocusPassword && errorTextPassword[0]}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -182,6 +204,7 @@ export default function Login() {
             type="submit"
             variant="contained"
             sx={{ mt: 3, mb: 2, bgcolor: "#63B1A9" }}
+            disabled={Boolean(errorTextID.length) || Boolean(errorTextPassword.length)}
           >
             Login
           </Button>
