@@ -65,14 +65,14 @@ export default function Login() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      cs_id: data.get("cs_id"),
-      password: data.get("password"),
-    });
+    // event.preventDefault();
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   cs_id: data.get("cs_id"),
+    //   password: data.get("password"),
+    // });
 
-    setValues({ ...values, [data]: event.target.value });
+    // setValues({ ...values, [data]: event.target.value });
   };
 
   return (

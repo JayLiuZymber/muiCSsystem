@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 const initialState = {
     system_name: "CS-System",
     user_info: {
-        // access_token: "",
+        access_token: "",
         // company: "",
         // email: "",
         name: "",
@@ -27,7 +27,7 @@ export const mainSlice = createSlice({
         },
         removeUserInfo(state, action) {
             state.user_info = {}
-            // Cookies.remove('access_token')
+            Cookies.remove('access_token')
             // Cookies.remove('company')
             // Cookies.remove('email')
             Cookies.remove('name')
