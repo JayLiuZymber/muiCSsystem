@@ -1,7 +1,8 @@
+import React from 'react';
 import './App.css';
+import Box from '@mui/material/Box';
 
 import {Routes, Route} from 'react-router-dom'
-import Box from '@mui/material/Box';
 import Main from './views/Main';
 import SideList from './components/SideList';
 import TopBar from './components/TopBar';
@@ -9,7 +10,7 @@ import TopBar from './components/TopBar';
 function App() {
   return (
     <Box sx={{ display: 'flex' }}>
-      <Box component="side">
+      <Box>
       <SideList></SideList>
       </Box>
       
