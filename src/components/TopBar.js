@@ -59,6 +59,7 @@ export default function TopBar() {
     switch(id){
       case menuList[1]:
         // todo move to Login Logs
+        navigate('/logs');
         break;
       case menuList[2]:
         dispatch(removeUserInfo());

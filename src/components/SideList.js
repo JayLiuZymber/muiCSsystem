@@ -22,7 +22,7 @@ export default function SideList() {
   const [bOpenSetting, setOpenSetting] = React.useState(true);
 
   const [listRoot, setListRoot] = useState([{
-      title: "Home", link: "/home", icon: <HomeIcon />
+      title: "Home", link: "/", icon: <HomeIcon />
     },
   ]);
   const [listClients, setListClients] = useState([{
@@ -71,13 +71,16 @@ export default function SideList() {
         }
       >
         
-        <ListItemButton>
-          <ListItemIcon>
-            {/* <HomeIcon /> */}
-            {listRoot[0].icon}
-          </ListItemIcon>
-          <ListItemText primary={listRoot[0].title} />
-        </ListItemButton>
+        <Link to={listRoot[0].link} 
+          style={{ textDecoration: 'none', color: '#fff' }} >
+          <ListItemButton>
+            <ListItemIcon>
+              {/* <HomeIcon /> */}
+              {listRoot[0].icon}
+            </ListItemIcon>
+            <ListItemText primary={listRoot[0].title} />
+          </ListItemButton>
+        </Link>
 
         <ListItemButton onClick={clientClick}>
           <ListItemIcon>

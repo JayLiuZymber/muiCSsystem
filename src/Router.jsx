@@ -1,5 +1,9 @@
 import React from 'react';
 import App from './App';
+
+import Home from './views/Home';
+import ClientsList from './views/ClientsList';
+import LoginLogs from './views/LoginLogs';
 import Login from './views/Login';
 import PageNotFound from './views/404hit';
 // import PageNotFound from './views/404neon';
@@ -46,6 +50,9 @@ export default function Router() {
             </RequireAuth>
           }
         >
+          <Route path='/' element={<Home />} />
+          <Route path='/clients' element={<ClientsList />} />
+          <Route path='/logs' element={<LoginLogs />} />
         </Route>
         {/* !isAuth() ? not auth : auth */}
         <Route path="/login"
