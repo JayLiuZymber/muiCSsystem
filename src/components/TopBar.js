@@ -57,6 +57,7 @@ export default function TopBar() {
     const id=event.target.id;
     switch(id){
       case menuList[1]:
+        // todo move to Login Logs
         break;
       case menuList[2]:
         dispatch(removeUserInfo());

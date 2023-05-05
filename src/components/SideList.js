@@ -1,4 +1,5 @@
 import * as React from "react";
+import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -23,9 +24,25 @@ export default function SideList() {
   const settingsClick = () => {
     setOpenSetting(!bOpenSetting);
   };
-  
+
   return (
-    <Box sx={{ height: "100%" }} bgcolor="#36373F" color="#fff">
+    <Box sx={{ height: "100vh" }} bgcolor="#36373F" color="#fff">
+       <ThemeProvider
+        theme={createTheme({
+          // components: {
+          //   MuiListItemButton: {
+          //     defaultProps: {
+          //       disableTouchRipple: true,
+          //     },
+          //   },
+          // },
+          palette: {
+            mode: 'dark',
+            primary: { main: '#525465' },
+            background: { paper: '#36373F' },
+          },
+        })}
+      >
       <List
         sx={{ width: "100%", maxWidth: 360 }}
         component="nav"
@@ -75,6 +92,7 @@ export default function SideList() {
           </List>
         </Collapse>
       </List>
+      </ThemeProvider>
     </Box>
   );
 }
