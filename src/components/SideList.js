@@ -1,7 +1,8 @@
-import * as React from "react";
+import React, {useState} from "react";
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
+import ListItem from '@mui/material/ListItem';
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -13,15 +14,31 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { Box } from "@mui/material";
 
+// router
+import { Link } from 'react-router-dom'
+
 export default function SideList() {
   const [bOpenClient, setOpenClient] = React.useState(true);
   const [bOpenSetting, setOpenSetting] = React.useState(true);
 
-  const clientsClick = () => {
+  const [listRoot, setListRoot] = useState([{
+      title: "Home", link: "/home", icon: <HomeIcon />
+    },
+  ]);
+  const [listClients, setListClients] = useState([{
+      title: "Clients List", link: "/clients", icon: ''
+    },
+  ]);
+  const [listSettings, setListSettings] = useState([{
+      title: "Login Logs", link: "/logs", icon: ''
+    },
+  ]);
+
+  const clientClick = (event) => {
     setOpenClient(!bOpenClient);
   };
 
-  const settingsClick = () => {
+  const settingClick = (event) => {
     setOpenSetting(!bOpenSetting);
   };
 
@@ -53,14 +70,16 @@ export default function SideList() {
           </ListSubheader>
         }
       >
+        
         <ListItemButton>
           <ListItemIcon>
-            <HomeIcon />
+            {/* <HomeIcon /> */}
+            {listRoot[0].icon}
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText primary={listRoot[0].title} />
         </ListItemButton>
 
-        <ListItemButton onClick={clientsClick}>
+        <ListItemButton onClick={clientClick}>
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
@@ -69,14 +88,29 @@ export default function SideList() {
         </ListItemButton>
         <Collapse in={bOpenClient} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 2 }}>
+            {/* <ListItemButton sx={{ pl: 2 }}>
               <ListItemIcon></ListItemIcon>
               <ListItemText primary="Clients List" />
-            </ListItemButton>
+            </ListItemButton> */}
+            {listClients.map((item,index) => {
+              return (
+                <Link to={item.link} key={index}
+                  style={{ textDecoration: 'none', color: '#fff' }} >
+                  <ListItem disablePadding key={index}>
+                    <ListItemButton key={index} sx={{ pl: 2 }}>
+                      <ListItemIcon>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.title}/>
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
+              )
+            })}
           </List>
         </Collapse>
 
-        <ListItemButton onClick={settingsClick}>
+        <ListItemButton onClick={settingClick}>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
@@ -85,10 +119,25 @@ export default function SideList() {
         </ListItemButton>
         <Collapse in={bOpenSetting} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 2 }}>
+            {/* <ListItemButton id="Login" sx={{ pl: 2 }} onClick={itemClick()}>
               <ListItemIcon></ListItemIcon>
-              <ListItemText primary="Login Logs" />
-            </ListItemButton>
+              <ListItemText primary="Login Logs" /> */}
+            {/* </ListItemButton> */}
+            {listSettings.map((item,index) => {
+              return (
+                <Link to={item.link} key={index}
+                  style={{ textDecoration: 'none', color: '#fff' }} >
+                  <ListItem disablePadding key={index}>
+                    <ListItemButton key={index} sx={{ pl: 2 }}>
+                      <ListItemIcon>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.title}/>
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
+              )
+            })}
           </List>
         </Collapse>
       </List>

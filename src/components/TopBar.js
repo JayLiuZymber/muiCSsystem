@@ -37,8 +37,9 @@ export default function TopBar() {
   const navigate = useNavigate();
   // redux
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.main.name);
-  const cs_id = useSelector((state) => state.main.cs_id);
+  const name = useSelector((state) => state.main.user_info.name);
+  const cs_id = useSelector((state) => state.main.user_info.cs_id);
+  // console.log('name', name);
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -113,7 +114,9 @@ export default function TopBar() {
                 onClose={handleClose}
               >
                 {/* bug name cs_id is empty */}
-                <MenuItem>{name}<br />{cs_id}</MenuItem>
+                <MenuItem>
+                  {name}<br />
+                  {cs_id}</MenuItem>
                 <MenuItem id={menuList[1]} onClick={handleClose}>{menuList[1]}</MenuItem>
                 <MenuItem id={menuList[2]} onClick={handleClose}>{menuList[2]}</MenuItem>
               </Menu>
