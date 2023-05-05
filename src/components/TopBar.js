@@ -116,8 +116,10 @@ export default function TopBar() {
               >
                 {/* bug name cs_id is empty */}
                 <MenuItem>
-                  {name}<br />
-                  {cs_id}</MenuItem>
+                  {name}
+                  <br />
+                  {cs_id}
+                  </MenuItem>
                 <MenuItem id={menuList[1]} onClick={handleClose}>{menuList[1]}</MenuItem>
                 <MenuItem id={menuList[2]} onClick={handleClose}>{menuList[2]}</MenuItem>
               </Menu>

@@ -1,5 +1,10 @@
 import React from 'react';
+import NewAssignedClients from './NewAssignedClients';
 
 export default function Home () {
-    return <div>Home</div>
+    return (
+        <div>
+            <NewAssignedClients></NewAssignedClients>
+        </div>
+    )
 };
