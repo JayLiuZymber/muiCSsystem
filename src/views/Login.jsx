@@ -14,8 +14,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+// router
 import { useNavigate, useLocation } from "react-router-dom";
-// Redux
+// redux
 import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo } from "../store/mainSlice";
 
@@ -97,9 +98,9 @@ export default function Login() {
     const csid = data.get("cs_id");
     const pw = data.get("password");
     if( csid == '' )
-      setErrorTextID(["CS ID can not empty"]);
+      setErrorTextID(["CS ID can not be empty"]);
     if( pw == '' )
-      setErrorTextPassword(["Password can not empty"]);
+      setErrorTextPassword(["Password can not be empty"]);
     if( csid !== '' && pw !== ''){
       login();
     }

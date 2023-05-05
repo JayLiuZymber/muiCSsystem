@@ -12,23 +12,57 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import {Link} from 'react-router-dom'
 import { bgcolor } from '@mui/system';
+
+// router
+import { Link } from 'react-router-dom'
+import { useNavigate, useLocation } from "react-router-dom";
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { removeUserInfo } from "../store/mainSlice";
+
+const menuList = [
+  '',
+  'Login Logs',
+  'Log out',
+];
 
 export default function TopBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  // router
+  const { state } = useLocation();
+  // console.log('state', state);
+  const navigate = useNavigate();
+  // redux
+  const dispatch = useDispatch();
+  const name = useSelector((state) => state.main.name);
+  const cs_id = useSelector((state) => state.main.cs_id);
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
 
   const handleMenu = (event) => {
+    // show menu
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (event) => {
+    // hide menu
     setAnchorEl(null);
+
+    // console.log('event.target.id', event.target.id);
+    const id=event.target.id;
+    switch(id){
+      case menuList[1]:
+        break;
+      case menuList[2]:
+        dispatch(removeUserInfo());
+        navigate('/login');
+        break;
+    }
   };
 
   return (
@@ -77,9 +111,10 @@ export default function TopBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem>CS2<br />cs-111111</MenuItem>
-                <MenuItem onClick={handleClose}>Login Logs</MenuItem>
-                <MenuItem onClick={handleClose}>Log out</MenuItem>
+                {/* bug name cs_id is empty */}
+                <MenuItem>{name}<br />{cs_id}</MenuItem>
+                <MenuItem id={menuList[1]} onClick={handleClose}>{menuList[1]}</MenuItem>
+                <MenuItem id={menuList[2]} onClick={handleClose}>{menuList[2]}</MenuItem>
               </Menu>
             </div>
           )}
