@@ -19,7 +19,7 @@ export const mainSlice = createSlice({
     reducers: {
         setUserInfo(state, action) {
             state.user_info = action.payload
-            // Cookies.set('access_token', state.user_info.access_token)
+            Cookies.set('access_token', state.user_info.access_token)
             // Cookies.set('company', state.user_info.company)
             // Cookies.set('email', state.user_info.email)
             Cookies.set('name', state.user_info.name)
