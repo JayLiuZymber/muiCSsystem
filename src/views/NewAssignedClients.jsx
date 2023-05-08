@@ -8,6 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 // Mobile Name Type Region2 Created
 function createData(mobile, name, type, region2, created) {
@@ -15,11 +16,16 @@ function createData(mobile, name, type, region2, created) {
 }
 
 const rows = [
-    createData('12525353', '-', 'Type1', '-', '2023-05-02 15:25:36'),
-    createData('25388', '-', '-', '-', '2023-05-01 15:25:36'),
-    createData('38758', '-', '-', '-', '2023-04-22 15:25:36'),
-    createData('4858', '-', 'Type1', '-', '2023-03-12 15:25:36'),
-    createData('5859628', '-', 'Type1', '-', '2023-03-02 15:25:36'),
+    createData('12525353', ['-'], 
+        'Type1', '-', '2023-05-02 15:25:36'),
+    createData('25388', ['-'], 
+        '-', '-', '2023-05-01 15:25:36'),
+    createData('38758', ['-'], 
+        '-', '-', '2023-04-22 15:25:36'),
+    createData('4858', ['-'], 
+        'Type1', '-', '2023-03-12 15:25:36'),
+    createData('5859628', ['-'], 
+        'Type1', '-', '2023-03-02 15:25:36'),
 ];
 
 export default function NewAssignedClients() {
@@ -63,7 +69,7 @@ export default function NewAssignedClients() {
                         <TableCell align="center" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="center">{row.name}</TableCell>
+                        <TableCell align="left">{row.name}</TableCell>
                         <TableCell align="center">{row.type}</TableCell>
                         <TableCell align="center">{row.region2}</TableCell>
                         <TableCell align="center">{row.created}</TableCell>

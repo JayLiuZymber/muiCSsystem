@@ -8,6 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 // Mobile Name Type Region2 Created
 function createData(mobile, name, type, region2) {
@@ -15,11 +16,16 @@ function createData(mobile, name, type, region2) {
 }
 
 const rows = [
-    createData('1122', 'jae_hwan', 'Type1', '-', '2023-05-04 15:25:36'),
-    createData('2233', '-', '-', '-', '2023-05-02 15:25:36'),
-    createData('334455', 'Ace', '-', '-', '2023-04-21 15:25:36'),
-    createData('456', 'Bill', 'Type1', '-', '2023-03-11 15:25:36'),
-    createData('5566', 'Clark', 'Type1', '-', '2023-03-10 15:25:36'),
+    createData('1122', [<ChatBubbleIcon />, 'jae_hwan'], 
+        'Type1', '-', '2023-05-04 15:25:36'),
+    createData('2233', ['-'], 
+        '-', '-', '2023-05-02 15:25:36'),
+    createData('334455', [<ChatBubbleIcon />, 'Ace'], 
+        '-', '-', '2023-04-21 15:25:36'),
+    createData('456', [<ChatBubbleIcon />, 'Bill'], 
+        'Type1', '-', '2023-03-11 15:25:36'),
+    createData('5566', [<ChatBubbleIcon />, 'Clark'], 
+        'Type1', '-', '2023-03-10 15:25:36'),
 ];
 
 export default function AssignedClients() {
@@ -55,14 +61,14 @@ export default function AssignedClients() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow
+                        <TableRow 
                         key={row.name}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align="center" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="center">{row.name}</TableCell>
+                        <TableCell align="left">{row.name}</TableCell>
                         <TableCell align="center">{row.type}</TableCell>
                         <TableCell align="center">{row.region2}</TableCell>
                         </TableRow>
