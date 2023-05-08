@@ -28,6 +28,16 @@ const rows = [
 ];
 
 export default function ClientFlowerRank() {
+/* 
+W3Schools Tryit Editor
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_all
+*/
+    const pageLoadTime = new Date().toLocaleString('sv-SE'); //2023-05-08 15:23:26
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
@@ -42,7 +52,8 @@ export default function ClientFlowerRank() {
                 pl: 2,
             }}>
                 <h2>{title}
-                    <IconButton aria-label="refresh page" component="label">
+                    <IconButton onClick={refreshPage}
+                        aria-label="refresh page" component="label">
                         <RefreshIcon />
                     </IconButton>
                 </h2>
@@ -76,6 +87,12 @@ export default function ClientFlowerRank() {
                     </TableBody>
                 </Table>
                 </TableContainer>
+            </Paper>
+
+            <Paper align='right' variant="" square sx={{
+                height: 50,
+            }}>
+                Update: {pageLoadTime}
             </Paper>
         </Stack>
     );
