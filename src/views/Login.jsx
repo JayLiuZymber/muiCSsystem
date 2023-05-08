@@ -13,12 +13,23 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Snackbar from '@mui/material/Snackbar';
+import Slide from '@mui/material/Slide';
+import MuiAlert from '@mui/material/Alert';
 
 // router
 import { useNavigate, useLocation } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo } from "../store/mainSlice";
+
+function TransitionUp(props) {
+  return <Slide {...props} direction="up" />;
+}
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function Copyright(props) {
   return (
@@ -46,31 +57,19 @@ export default function Login() {
   const [errorTextPassword, setErrorTextPassword] = useState([]);
   const [bFocusPassword, setFocusPassword] = useState(false);
 
-  // router
-  const { state } = useLocation();
-  // console.log('state', state);
-  const navigate = useNavigate();
-  // redux
-  const dispatch = useDispatch();
-
-  const login = () => {
-    // console.log('>login')
-    dispatch(
-      setUserInfo({
-        access_token: "f6ddee55-4168-11ec-9d26-02691930da90",
-        // company: "testcc",
-        // email: "test1",
-        name: "cs2",
-        cs_id: "cs-111111",
-      })
-    );
-
-    if(state == null)
-      navigate("/");
-    else
-      navigate(state.from.pathname);
+  // snackbar
+  const [open, setOpen] = React.useState(false);
+  const [transition, setTransition] = React.useState(undefined);
+  
+  const handleCheck = (Transition) => () => {
+    setTransition(() => Transition);
+    setOpen(true);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
   const handleChange = (prop) => (event) => {
     // console.log('event.target.value', event.target.value);
     setValues({ ...values, [prop]: event.target.value });
@@ -104,6 +103,33 @@ export default function Login() {
     if( csid !== '' && pw !== ''){
       login();
     }
+  };
+  
+  // router
+  const { state } = useLocation();
+  // console.log('state', state);
+  const navigate = useNavigate();
+  // redux
+  const dispatch = useDispatch();
+
+  const login = () => {
+    // console.log('>login')
+    dispatch(
+      setUserInfo({
+        access_token: "f6ddee55-4168-11ec-9d26-02691930da90",
+        // company: "testcc",
+        // email: "test1",
+        name: "cs2",
+        cs_id: "cs-111111",
+      })
+    );
+
+    if(state == null) {
+      handleCheck(TransitionUp);
+      // setOpen(true);
+      navigate("/");
+    } else
+      navigate(state.from.pathname);
   };
 
   return (
@@ -213,6 +239,21 @@ export default function Login() {
       </Box>
 
       <Copyright sx={{ mt: 8, mb: 4 }} />
+      <Snackbar
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={transition}
+        autoHideDuration={5000}
+        key={transition ? transition.name : ''}
+        sx={{ width: '100%' }}
+      >
+        <Alert severity="success" sx={{ width: '100%' }}>
+          Login OK!
+        </Alert>
+        {/* <Alert severity="error">error</Alert>
+        <Alert severity="warning">warning</Alert>
+        <Alert severity="info">info</Alert> */}
+      </Snackbar>
     </ThemeProvider>
   );
 }

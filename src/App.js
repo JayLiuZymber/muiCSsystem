@@ -14,14 +14,14 @@ function App() {
       <Box>
       <SideList></SideList>
       </Box>
-      
+
       <Box component="main" sx={{ flexGrow: 1 }}>
         <TopBar></TopBar>
         <Outlet />
       </Box>
-      <BottomBar></BottomBar>
+      {/* <BottomBar></BottomBar> */}
     </Box>
-    
+
   );
 }
 

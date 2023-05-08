@@ -39,6 +39,9 @@ export default function BottomBar() {
         <Alert severity="success" sx={{ width: '100%' }}>
         Login OK!
         </Alert>
+        {/* <Alert severity="error">error</Alert>
+        <Alert severity="warning">warning</Alert>
+        <Alert severity="info">info</Alert> */}
       </Snackbar>
     </div>
   );
