@@ -18,15 +18,15 @@ function createData(mobile, name, type, region2) {
 const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [
-    createData('1122', [<ChatBubbleIcon />, 'jae_hwan'], 
+    createData('1122', [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
         'Type1', '-', '2023-05-04 15:25:36'),
-    createData('2233', ['-'], 
+    createData('2233', ['-'],
         '-', '-', '2023-05-02 15:25:36'),
-    createData('334455', [<ChatBubbleIcon />, 'Ace'], 
+    createData('334455', [<ChatBubbleIcon key='Ace' />, 'Ace'],
         '-', '-', '2023-04-21 15:25:36'),
-    createData('456', [<ChatBubbleIcon />, 'Bill'], 
+    createData('456', [<ChatBubbleIcon key='Bill' />, 'Bill'],
         'Type1', '-', '2023-03-11 15:25:36'),
-    createData('5566', [<ChatBubbleIcon />, 'Clark'], 
+    createData('5566', [<ChatBubbleIcon key='Clark' />, 'Clark'],
         'Type1', '-', '2023-03-10 15:25:36'),
 ];
 
@@ -62,7 +62,7 @@ export default function AssignedClients() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow 
+                        <TableRow
                         key={row.name}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
