@@ -51,7 +51,7 @@ export default function NewAssignedClients() {
                 // overflow: 'hidden',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 400 }} aria-label="simple table">
+                <Table sx={{ minWidth: 400, width: 600 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             <TableCell align="center">Mobile</TableCell>

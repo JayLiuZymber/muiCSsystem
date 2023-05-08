@@ -34,7 +34,7 @@ export default function AssignedClients() {
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '100%',
+            // width: '800',
             // bgcolor: '#777',
             color: '#5D737E',
             },
@@ -51,7 +51,7 @@ export default function AssignedClients() {
                 // overflow: 'hidden',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 400 }} aria-label="simple table">
+                <Table sx={{ minWidth: 400, width: 600, }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             <TableCell align="center">Mobile</TableCell>
