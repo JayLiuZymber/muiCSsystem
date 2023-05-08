@@ -8,23 +8,31 @@ import NewAssignedClients from './NewAssignedClients';
 import AssignedClients from './AssignedClients';
 import ClientAD from './ClientAD';
 import ClientBlog from './ClientBlog';
+import ClientFlowerRank from './ClientFlowerRank';
+import ClientHeartRank from './ClientHeartRank';
 
 export default function Home () {
     return (
         <div>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, m:2}}>
             <Grid container spacing={2}>
-                <Grid display="flex" xs={12}>
+                <Grid display="flex" xm={12}>
                     <NewAssignedClients></NewAssignedClients>
                 </Grid>
-                <Grid display="flex" xs={12}>
+                <Grid display="flex" xm={12}>
                     <AssignedClients></AssignedClients>
                 </Grid>
-                <Grid display="flex" xs={6}>
+                <Grid display="flex" xm={6}>
                     <ClientAD></ClientAD>
                 </Grid>
-                <Grid display="flex" xs={6}>
+                <Grid display="flex" xm={6}>
                     <ClientBlog></ClientBlog>
+                </Grid>
+                <Grid display="flex" xm={6}>
+                    <ClientFlowerRank></ClientFlowerRank>
+                </Grid>
+                <Grid display="flex" xm={6}>
+                    <ClientHeartRank></ClientHeartRank>
                 </Grid>
             </Grid>
             </Box>

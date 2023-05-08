@@ -9,28 +9,25 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+import IconButton from '@mui/material/IconButton';
+import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
-// Mobile Name Type Region2 Created
-function createData(mobile, name, type, region2, created) {
-    return { mobile, name, type, region2, created };
+// Mobile Status
+function createData(mobile, status) {
+    return { mobile, status };
 }
 
-const title = 'New Assigned Clients';
-const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];
+const title = 'Client AD OFF/REST';
+const heads = ['Mobile', 'Status'];
 const rows = [
-    createData('12525353', ['-'], 
-        'Type1', '-', '2023-05-02 15:25:36'),
-    createData('25388', ['-'], 
-        '-', '-', '2023-05-01 15:25:36'),
-    createData('38758', ['-'], 
-        '-', '-', '2023-04-22 15:25:36'),
-    createData('4858', ['-'], 
-        'Type1', '-', '2023-03-12 15:25:36'),
-    createData('5859628', ['-'], 
-        'Type1', '-', '2023-03-02 15:25:36'),
+    createData('1122', 'OK'),
+    createData('2233', 'OFF'),
+    createData('334455', 'REST'),
+    createData('456', '-'),
+    createData('5566', '-'),
 ];
 
-export default function NewAssignedClients() {
+export default function ClientFlowerRank() {
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
@@ -44,7 +41,11 @@ export default function NewAssignedClients() {
                 height: 50,
                 pl: 2,
             }}>
-                <h2>{title}</h2>
+                <h2>{title}
+                    <IconButton aria-label="refresh page" component="label">
+                        <RefreshIcon />
+                    </IconButton>
+                </h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{
@@ -52,7 +53,7 @@ export default function NewAssignedClients() {
                 // overflow: 'hidden',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 400, width: 600 }} aria-label="simple table">
+                <Table sx={{ minWidth: 280 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
@@ -62,17 +63,14 @@ export default function NewAssignedClients() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow
+                        <TableRow 
                         key={row.name}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align="center" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="left">{row.name}</TableCell>
-                        <TableCell align="center">{row.type}</TableCell>
-                        <TableCell align="center">{row.region2}</TableCell>
-                        <TableCell align="center">{row.created}</TableCell>
+                        <TableCell align='center'>{row.status}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

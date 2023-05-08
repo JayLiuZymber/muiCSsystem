@@ -16,6 +16,7 @@ function createData(mobile, name, type, region2) {
 }
 
 const title = 'Assigned Clients';
+const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [
     createData('1122', [<ChatBubbleIcon />, 'jae_hwan'], 
         'Type1', '-', '2023-05-04 15:25:36'),
@@ -54,10 +55,9 @@ export default function AssignedClients() {
                 <Table sx={{ minWidth: 400, width: 600, }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
-                            <TableCell align="center">Mobile</TableCell>
-                            <TableCell align="center">Name</TableCell>
-                            <TableCell align="center">Type</TableCell>
-                            <TableCell align="center">Region2</TableCell>
+                            {heads.map((head) => (
+                                <TableCell align="center">{head} </TableCell>
+                            ))}
                         </TableRow>
                     </TableHead>
                     <TableBody>
