@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import { Outlet } from "react-router-dom";
 import SideList from './components/SideList';
 import TopBar from './components/TopBar';
+import BottomDrawer from './components/BottomDrawer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <TopBar></TopBar>
         <Outlet />
       </Box>
+      <BottomDrawer></BottomDrawer>
     </Box>
     
   );
