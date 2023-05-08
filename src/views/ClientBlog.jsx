@@ -58,7 +58,7 @@ export default function ClientBlog() {
                     <TableBody>
                     {rows.map((row) => (
                         <TableRow 
-                        key={row.name}
+                        key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align="center" component="th" scope="row">
