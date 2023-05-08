@@ -57,13 +57,13 @@ export default function ClientHeartRank() {
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
-                                <TableCell align="center">{head} </TableCell>
+                                <TableCell key={head} align="center">{head} </TableCell>
                             ))}
                         </TableRow>
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow 
+                        <TableRow
                         key={row.name}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >

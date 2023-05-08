@@ -56,7 +56,7 @@ export default function NewAssignedClients() {
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
-                                <TableCell align="center">{head} </TableCell>
+                                <TableCell key={head} align="center">{head} </TableCell>
                             ))}
                         </TableRow>
                     </TableHead>

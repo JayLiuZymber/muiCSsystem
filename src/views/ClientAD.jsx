@@ -16,6 +16,7 @@ function createData(mobile, status) {
 }
 
 const title = 'Client AD OFF/REST';
+const heads = ['Mobile', 'Status'];
 const rows = [
     createData('1122', 'OK'),
     createData('2233', 'OFF'),
@@ -49,8 +50,9 @@ export default function ClientAD() {
                 <Table sx={{ minWidth: 280 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
-                            <TableCell align="center">Mobile</TableCell>
-                            <TableCell align="center">Status</TableCell>
+                            {heads.map((head) => (
+                                <TableCell key={head} align="center">{head} </TableCell>
+                            ))}
                         </TableRow>
                     </TableHead>
                     <TableBody>
