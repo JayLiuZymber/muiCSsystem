@@ -15,6 +15,7 @@ function createData(mobile, name, type, region2, created) {
     return { mobile, name, type, region2, created };
 }
 
+const title = 'New Assigned Clients';
 const rows = [
     createData('12525353', ['-'], 
         'Type1', '-', '2023-05-02 15:25:36'),
@@ -42,7 +43,7 @@ export default function NewAssignedClients() {
                 height: 50,
                 pl: 2,
             }}>
-                <h2>New Assigned Clients</h2>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{

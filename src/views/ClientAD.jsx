@@ -10,26 +10,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
-// Mobile Name Type Region2 Created
-function createData(mobile, name, type, region2) {
-    return { mobile, name, type, region2 };
+// Mobile Status
+function createData(mobile, status) {
+    return { mobile, status };
 }
 
-const title = 'Assigned Clients';
+const title = 'Client AD OFF/REST';
 const rows = [
-    createData('1122', [<ChatBubbleIcon />, 'jae_hwan'], 
-        'Type1', '-', '2023-05-04 15:25:36'),
-    createData('2233', ['-'], 
-        '-', '-', '2023-05-02 15:25:36'),
-    createData('334455', [<ChatBubbleIcon />, 'Ace'], 
-        '-', '-', '2023-04-21 15:25:36'),
-    createData('456', [<ChatBubbleIcon />, 'Bill'], 
-        'Type1', '-', '2023-03-11 15:25:36'),
-    createData('5566', [<ChatBubbleIcon />, 'Clark'], 
-        'Type1', '-', '2023-03-10 15:25:36'),
+    createData('1122', 'OK'),
+    createData('2233', 'OFF'),
+    createData('334455', 'REST'),
+    createData('456', '-'),
+    createData('5566', '-'),
 ];
 
-export default function AssignedClients() {
+export default function ClientAD() {
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
@@ -43,7 +38,7 @@ export default function AssignedClients() {
                 height: 50,
                 pl: 2,
             }}>
-                <h2>{title} </h2>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{
@@ -55,9 +50,7 @@ export default function AssignedClients() {
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             <TableCell align="center">Mobile</TableCell>
-                            <TableCell align="center">Name</TableCell>
-                            <TableCell align="center">Type</TableCell>
-                            <TableCell align="center">Region2</TableCell>
+                            <TableCell align="center">Status</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -69,9 +62,7 @@ export default function AssignedClients() {
                         <TableCell align="center" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="left">{row.name}</TableCell>
-                        <TableCell align="center">{row.type}</TableCell>
-                        <TableCell align="center">{row.region2}</TableCell>
+                        <TableCell align='center'>{row.status}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>
