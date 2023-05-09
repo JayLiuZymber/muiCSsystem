@@ -15,25 +15,25 @@ const columns = [
     field: 'mobile', 
     headerName: 'Mobile', 
     width: 200,
-    editable: true,
+    // editable: true,
   },
   {
     field: 'name',
     headerName: 'Name',
     width: 200,
-    editable: true,
+    // editable: true,
   },
   {
     field: 'type',
     headerName: 'Type',
     width: 100,
-    editable: true,
+    // editable: true,
   },
   {
     field: 'region2',
     headerName: 'Region2',
-    width: 100,
-    editable: true,
+    width: 150,
+    // editable: true,
   },
 ];
 
@@ -87,7 +87,7 @@ export default function TabClientsList() {
             )}
           />
         </Grid>
-      </Grid>
+      </Grid>      
       <DataGrid
         rows={rows}
         columns={columns}
