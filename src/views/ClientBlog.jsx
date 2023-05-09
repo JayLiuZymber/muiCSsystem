@@ -31,7 +31,7 @@ export default function ClientBlog() {
             display: 'flex',
             '& > :not(style)': {
             width: '35vw',
-            // bgcolor: '#777',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>

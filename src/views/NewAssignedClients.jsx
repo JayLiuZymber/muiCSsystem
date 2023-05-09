@@ -36,13 +36,15 @@ export default function NewAssignedClients() {
             display: 'flex',
             '& > :not(style)': {
             width: '70vw',
-            // bgcolor: '#777',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>
             <Paper variant="outlined" square sx={{
                 height: 50,
                 pl: 2,
+                // alignItems: 'center',
+                // verticalAlign: 'middle',
             }}>
                 <h2>{title}</h2>
             </Paper>
