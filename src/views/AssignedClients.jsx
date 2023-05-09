@@ -35,7 +35,7 @@ export default function AssignedClients() {
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            // width: '800',
+            width: '70vw',
             // bgcolor: '#777',
             color: '#5D737E',
             },
@@ -52,7 +52,7 @@ export default function AssignedClients() {
                 // overflow: 'hidden',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 400, width: 600, }} aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
@@ -66,7 +66,7 @@ export default function AssignedClients() {
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                        <TableCell align="center" component="th" scope="row">
+                        <TableCell align="left" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
                         <TableCell align="left">{row.name}</TableCell>

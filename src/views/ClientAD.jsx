@@ -30,7 +30,7 @@ export default function ClientAD() {
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '100%',
+            width: '35vw',
             // bgcolor: '#777',
             color: '#5D737E',
             },
@@ -47,7 +47,7 @@ export default function ClientAD() {
                 // overflow: 'hidden',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 280 }} aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
@@ -61,7 +61,7 @@ export default function ClientAD() {
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                        <TableCell align="center" component="th" scope="row">
+                        <TableCell align="left" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
                         <TableCell align='center'>{row.status}</TableCell>
