@@ -17,7 +17,7 @@ function createData(mobile, status) {
     return { mobile, status };
 }
 
-const title = 'Client AD OFF/REST';
+const title = 'Client Flower Rank';
 const heads = ['Mobile', 'Status'];
 const rows = [
     createData('1122', 'OK'),
@@ -28,7 +28,7 @@ const rows = [
 ];
 
 export default function ClientFlowerRank() {
-/* 
+/*
 W3Schools Tryit Editor
 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_all
 */
@@ -44,7 +44,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
             '& > :not(style)': {
             width: '35vw',
             // minWidth: 300,
-            // bgcolor: '#777',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>

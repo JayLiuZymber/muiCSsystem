@@ -44,7 +44,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
             '& > :not(style)': {
             width: '35vw',
             // minWidth: 300,
-            // bgcolor: '#777',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>
