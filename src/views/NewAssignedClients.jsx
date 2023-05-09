@@ -49,7 +49,7 @@ export default function NewAssignedClients() {
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
                 <Table aria-label="simple table">

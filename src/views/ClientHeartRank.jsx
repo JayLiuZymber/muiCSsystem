@@ -62,7 +62,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 280 }} aria-label="simple table">

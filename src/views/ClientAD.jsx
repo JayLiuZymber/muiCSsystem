@@ -23,6 +23,8 @@ const rows = [
     createData('334455', 'REST'),
     createData('456', '-'),
     createData('5566', '-'),
+    createData('66', '-'),
+    createData('789', '-'),
 ];
 
 export default function ClientAD() {
@@ -44,7 +46,7 @@ export default function ClientAD() {
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
                 <Table aria-label="simple table">
