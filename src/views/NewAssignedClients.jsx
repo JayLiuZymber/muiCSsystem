@@ -71,7 +71,9 @@ export default function NewAssignedClients() {
                         <TableCell align="left" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="left">{row.name}</TableCell>
+                        <TableCell align="left"sx={{display: 'flex', alignItems: 'center'}}>
+                            {row.name}
+                        </TableCell>
                         <TableCell align="center">{row.type}</TableCell>
                         <TableCell align="center">{row.region2}</TableCell>
                         <TableCell align="center">{row.created}</TableCell>

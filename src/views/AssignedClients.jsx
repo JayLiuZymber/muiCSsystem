@@ -56,7 +56,7 @@ export default function AssignedClients() {
                 <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
-                        <TableRow sx={{  height: 80 }} >
+                        <TableRow sx={{ height: 80 }} >
                             {heads.map((head) => (
                                 <TableCell key={head} align="center">{head} </TableCell>
                             ))}
@@ -71,7 +71,9 @@ export default function AssignedClients() {
                         <TableCell align="left" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="left">{row.name}</TableCell>
+                        <TableCell align="left" sx={{display: 'flex', alignItems: 'center'}}>
+                            {row.name}
+                        </TableCell>
                         <TableCell align="center">{row.type}</TableCell>
                         <TableCell align="center">{row.region2}</TableCell>
                         </TableRow>
