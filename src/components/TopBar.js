@@ -20,6 +20,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { removeUserInfo } from "../store/mainSlice";
+// cookie
+import Cookie from "js-cookie";
 
 const menuList = [
   '',
@@ -97,7 +99,10 @@ export default function TopBar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <Box align="left">CS2 <br />cs-111111</Box>
+                <Box align="left">
+                  {Cookie.get("name")}<br />
+                  {Cookie.get("cs_id")}
+                </Box>
               </Button>
               <Menu
                 id="menu-appbar"
@@ -116,9 +121,8 @@ export default function TopBar() {
               >
                 {/* bug name cs_id is empty */}
                 <MenuItem>
-                  {name}
-                  <br />
-                  {cs_id}
+                  {Cookie.get("name")}<br />
+                  {Cookie.get("cs_id")}
                   </MenuItem>
                 <MenuItem id={menuList[1]} onClick={handleClose}>{menuList[1]}</MenuItem>
                 <MenuItem id={menuList[2]} onClick={handleClose}>{menuList[2]}</MenuItem>
