@@ -2,26 +2,37 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 const columns = [
-  { field: 'mobile', headerName: 'Mobile', width: 90 },
+  // { field: 'id', headerName: 'ID', width: 1 },
+  {
+    field: 'mobile', 
+    headerName: 'Mobile', 
+    width: 200,
+    editable: true,
+  },
   {
     field: 'name',
     headerName: 'Name',
-    width: 150,
+    width: 200,
     editable: true,
   },
   {
     field: 'type',
     headerName: 'Type',
-    width: 150,
+    width: 100,
     editable: true,
   },
   {
     field: 'region2',
     headerName: 'Region2',
-    type: 'number',
-    width: 110,
+    width: 100,
     editable: true,
   },
 ];
@@ -38,22 +49,56 @@ const rows = [
   { id: 9, mobile: '1001', name: 'Roxie', type: '-', region2: '-' },
 ];
 
+const Item = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(1),
+  height: 45,
+  flexGrow: 1,
+}));
+
 export default function TabClientsList() {
+  const defaultProps = {
+    options: rows.name,
+    getOptionLabel: (option) => option.mobile,
+  };
+  const flatProps = {
+    options: rows.map((option) => option.mobile),
+  };
+  const [value, setValue] = React.useState(null);
   const count = 79;
+
   return (
     <Box sx={{ height: 400, width: '70vw' }}>
-      Clients List ({count})
+      <Grid container rowSpacing={1}>
+        <Grid display="flex" xs={6} sm={6}>
+          <h3>Clients List ({count})</h3>
+        </Grid>
+        <Grid display="flex" xs={6} sm={6} sx={{
+          // textAlign: 'right', 
+          // alignItems: 'right', 
+        }}>
+          <Autocomplete
+            // {...defaultProps}
+            sx={{
+              minWidth: 200, }}
+            id="include-input-in-list"
+            includeInputInList
+            renderInput={(params) => (
+              <TextField {...params} label="Mobile or Name" variant="standard" />
+            )}
+          />
+        </Grid>
+      </Grid>
       <DataGrid
         rows={rows}
         columns={columns}
         initialState={{
           pagination: {
             paginationModel: {
-              pageSize: 5,
+              pageSize: 10,
             },
           },
         }}
-        pageSizeOptions={[5]}
+        pageSizeOptions={[10, 20, 50]}
         // checkboxSelection
         disableRowSelectionOnClick
       />
