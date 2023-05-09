@@ -11,10 +11,7 @@ import BottomBar from './components/BottomBar';
 function App() {
   return (
     <Box sx={{ display: 'flex' }}>
-      <Box>
       <SideList></SideList>
-      </Box>
-
       <Box component="main" sx={{ flexGrow: 1 }}>
         <TopBar></TopBar>
         <Outlet />

@@ -42,7 +42,8 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '100%',
+            width: '35vw',
+            // minWidth: 300,
             // bgcolor: '#777',
             color: '#5D737E',
             },
@@ -82,7 +83,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                             {row.hashtag}
                         </TableCell>
                         <TableCell align='center'>{row.postid}</TableCell>
-                        <TableCell align='center'>{row.mobile}</TableCell>
+                        <TableCell align='left'>{row.mobile}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

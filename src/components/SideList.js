@@ -43,7 +43,7 @@ export default function SideList() {
   };
 
   return (
-    <Box sx={{ height: "100vh" }} bgcolor="#36373F" color="#fff">
+    <Box bgcolor="#36373F" color="#fff">
        <ThemeProvider
         theme={createTheme({
           // components: {
@@ -61,7 +61,7 @@ export default function SideList() {
         })}
       >
       <List
-        sx={{ width: "100%", maxWidth: 360 }}
+        sx={{ width: "20vw", minWidth: 200 }}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={

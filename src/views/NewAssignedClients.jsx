@@ -18,15 +18,15 @@ function createData(mobile, name, type, region2, created) {
 const title = 'New Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];
 const rows = [
-    createData('12525353', ['-'], 
+    createData('12525353', ['-'],
         'Type1', '-', '2023-05-02 15:25:36'),
-    createData('25388', ['-'], 
+    createData('25388', ['-'],
         '-', '-', '2023-05-01 15:25:36'),
-    createData('38758', ['-'], 
+    createData('38758', ['-'],
         '-', '-', '2023-04-22 15:25:36'),
-    createData('4858', ['-'], 
+    createData('4858', ['-'],
         'Type1', '-', '2023-03-12 15:25:36'),
-    createData('5859628', ['-'], 
+    createData('5859628', ['-'],
         'Type1', '-', '2023-03-02 15:25:36'),
 ];
 
@@ -35,7 +35,7 @@ export default function NewAssignedClients() {
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '100%',
+            width: '70vw',
             // bgcolor: '#777',
             color: '#5D737E',
             },
@@ -52,7 +52,7 @@ export default function NewAssignedClients() {
                 // overflow: 'hidden',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 400, width: 600 }} aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
@@ -66,7 +66,7 @@ export default function NewAssignedClients() {
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                        <TableCell align="center" component="th" scope="row">
+                        <TableCell align="left" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
                         <TableCell align="left">{row.name}</TableCell>
