@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useState} from 'react';
+import { useState } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -58,18 +58,19 @@ export default function Login() {
   const [bFocusPassword, setFocusPassword] = useState(false);
 
   // snackbar
-  const [open, setOpen] = React.useState(false);
+  const [openLoginSuccess, setOpenLoginSuccess] = React.useState(false);
   const [transition, setTransition] = React.useState(undefined);
-  
-  const handleCheck = (Transition) => () => {
-    setTransition(() => Transition);
-    setOpen(true);
+
+
+  const handleCheck = () => {
+    // setTransition(() => Transition);
+    setOpenLoginSuccess(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setOpenLoginSuccess(false);
   };
-  
+
   const handleChange = (prop) => (event) => {
     // console.log('event.target.value', event.target.value);
     setValues({ ...values, [prop]: event.target.value });
@@ -96,15 +97,15 @@ export default function Login() {
 
     const csid = data.get("cs_id");
     const pw = data.get("password");
-    if( csid == '' )
+    if (csid == '')
       setErrorTextID(["CS ID can not be empty"]);
-    if( pw == '' )
+    if (pw == '')
       setErrorTextPassword(["Password can not be empty"]);
-    if( csid !== '' && pw !== ''){
+    if (csid !== '' && pw !== '') {
       login();
     }
   };
-  
+
   // router
   const { state } = useLocation();
   // console.log('state', state);
@@ -124,10 +125,11 @@ export default function Login() {
       })
     );
 
-    if(state == null) {
-      handleCheck(TransitionUp);
-      // setOpen(true);
-      navigate("/");
+    if (state == null) {
+      // handleCheck();
+      // setOpenLoginSuccess(true);
+      navigate("/", { state: { showSnackbar: true } });
+
     } else
       navigate(state.from.pathname);
   };
@@ -194,20 +196,20 @@ export default function Login() {
         <Box
           component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
-              margin="normal"
-              variant="standard"
-              required
-              fullWidth
-              id="email"
-              label="CS ID"
-              name="cs_id"
-              autoComplete="cs_id"
-              autoFocus
-              onChange={handleChange("cs_id")}
-              onFocus={handleFocusID}
-              error={bFocusID && Boolean(errorTextID.length)}
-              helperText={bFocusID && errorTextID[0]}
-            />
+            margin="normal"
+            variant="standard"
+            required
+            fullWidth
+            id="email"
+            label="CS ID"
+            name="cs_id"
+            autoComplete="cs_id"
+            autoFocus
+            onChange={handleChange("cs_id")}
+            onFocus={handleFocusID}
+            error={bFocusID && Boolean(errorTextID.length)}
+            helperText={bFocusID && errorTextID[0]}
+          />
           <TextField
             margin="normal"
             variant="standard"
@@ -239,21 +241,18 @@ export default function Login() {
       </Box>
 
       <Copyright sx={{ mt: 8, mb: 4 }} />
-      <Snackbar
-        open={open}
+      {/* <Snackbar
+        open={openLoginSuccess}
         onClose={handleClose}
         TransitionComponent={transition}
         autoHideDuration={5000}
-        key={transition ? transition.name : ''}
+        // key={transition ? transition.name : ''}
         sx={{ width: '100%' }}
       >
         <Alert severity="success" sx={{ width: '100%' }}>
           Login OK!
         </Alert>
-        {/* <Alert severity="error">error</Alert>
-        <Alert severity="warning">warning</Alert>
-        <Alert severity="info">info</Alert> */}
-      </Snackbar>
+      </Snackbar> */}
     </ThemeProvider>
   );
 }
