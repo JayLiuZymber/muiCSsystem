@@ -5,10 +5,14 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-import TabClientsList from './TabClientsList';
+
 
 const tabLabel = [
-  'Clients List',
+    'Client Details',
+    'All Balance',
+    'AD Details',
+    'CS Call Record',
+    'Instant Post Management',
 ];
 
 function TabPanel(props) {
@@ -44,7 +48,7 @@ function a11yProps(index) {
   };
 }
 
-export default function ClientsList () {
+export default function Client () {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -61,14 +65,19 @@ export default function ClientsList () {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <TabClientsList></TabClientsList>
       </TabPanel>
-      {/* <TabPanel value={value} index={1}>
-        Item 2
+      <TabPanel value={value} index={1}>
+        {tabLabel[1]}
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item 3
-      </TabPanel> */}
+        {tabLabel[2]}
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        {tabLabel[3]}
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        {tabLabel[4]}
+      </TabPanel>
     </Box>
   );
 };
