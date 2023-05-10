@@ -58,13 +58,14 @@ export default function Login() {
   const [bFocusPassword, setFocusPassword] = useState(false);
 
   // snackbar
+  const [openLoginError, setOpenLoginError] = React.useState(false);
   const [openLoginSuccess, setOpenLoginSuccess] = React.useState(false);
   const [transition, setTransition] = React.useState(undefined);
-
 
   const handleCheck = () => {
     // setTransition(() => Transition);
     setOpenLoginSuccess(true);
+    // setOpenLoginError(true);
   };
 
   const handleClose = () => {
@@ -242,15 +243,15 @@ export default function Login() {
 
       <Copyright sx={{ mt: 8, mb: 4 }} />
       {/* <Snackbar
-        open={openLoginSuccess}
+        open={openLoginError}
         onClose={handleClose}
         TransitionComponent={transition}
         autoHideDuration={5000}
         // key={transition ? transition.name : ''}
         sx={{ width: '100%' }}
       >
-        <Alert severity="success" sx={{ width: '100%' }}>
-          Login OK!
+        <Alert severity="Error" sx={{ width: '100%' }}>
+          ID or Password Error!
         </Alert>
       </Snackbar> */}
     </ThemeProvider>

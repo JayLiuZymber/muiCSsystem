@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom";
 
 export default function Home(props) {
     const location = useLocation();
-
+    // const [showSnackbar, setShowSnackbar] = React.useState(true); //test
     const [showSnackbar, setShowSnackbar] = React.useState(location.state?.showSnackbar ?? false);
 
     return (
@@ -44,12 +44,12 @@ export default function Home(props) {
             </Box>
 
             <Snackbar
-        open={showSnackbar}
-        onClose={() => setShowSnackbar(false)}
-        autoHideDuration={5000}
-        sx={{ width: '100%' }}
-        message="Login Success!"
-      />
+                open={showSnackbar}
+                onClose={() => setShowSnackbar(false)}
+                autoHideDuration={5000}
+                sx={{ width: '100%' }}
+                message="Login Success!"
+            />
         </div>
     )
 };
