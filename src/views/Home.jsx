@@ -1,15 +1,15 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-
-import NewAssignedClients from './NewAssignedClients';
-import AssignedClients from './AssignedClients';
-import ClientAD from './ClientAD';
-import ClientBlog from './ClientBlog';
-import ClientFlowerRank from './ClientFlowerRank';
-import ClientHeartRank from './ClientHeartRank';
 import Snackbar from '@mui/material/Snackbar';
 import { useLocation } from "react-router-dom";
+
+import GridNewAssignedClients from './GridNewAssignedClients';
+import GridAssignedClients from './GridAssignedClients';
+import GridClientAD from './GridClientAD';
+import GridClientBlog from './GridClientBlog';
+import GridClientFlowerRank from './GridClientFlowerRank';
+import GridClientHeartRank from './GridClientHeartRank';
 
 
 export default function Home(props) {
@@ -23,22 +23,22 @@ export default function Home(props) {
             <Grid container rowSpacing={2}
                 columnSpacing={{ xs: 2, sm: 3, md: 4 }}>
                 <Grid display="flex" xs={12} sm={12}>
-                    <NewAssignedClients></NewAssignedClients>
+                    <GridNewAssignedClients></GridNewAssignedClients>
                 </Grid>
                 <Grid display="flex" xs={12} sm={12}>
-                    <AssignedClients></AssignedClients>
+                    <GridAssignedClients></GridAssignedClients>
                 </Grid>
                 <Grid display="flex" xs={6} sm={6}>
-                    <ClientAD></ClientAD>
+                    <GridClientAD></GridClientAD>
                 </Grid>
                 <Grid display="flex" xs={6} sm={6}>
-                    <ClientBlog></ClientBlog>
+                    <GridClientBlog></GridClientBlog>
                 </Grid>
                 <Grid display="flex" xs={6} sm={6}>
-                    <ClientFlowerRank></ClientFlowerRank>
+                    <GridClientFlowerRank></GridClientFlowerRank>
                 </Grid>
                 <Grid display="flex" xs={6} sm={6}>
-                    <ClientHeartRank></ClientHeartRank>
+                    <GridClientHeartRank></GridClientHeartRank>
                 </Grid>
             </Grid>
             </Box>

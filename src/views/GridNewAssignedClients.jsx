@@ -30,7 +30,7 @@ const rows = [
         'Type1', '-', '2023-03-02 15:25:36'),
 ];
 
-export default function NewAssignedClients() {
+export default function GridNewAssignedClients() {
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
