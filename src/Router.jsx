@@ -7,6 +7,7 @@ import LoginLogs from './views/LoginLogs';
 import Login from './views/Login';
 import PageNotFound from './views/404hit';
 // import PageNotFound from './views/404neon';
+import Client from './views/Client';
 
 import {
   BrowserRouter,
@@ -53,6 +54,9 @@ export default function Router() {
           <Route path='/' element={<Home />} />
           <Route path='/clients' element={<ClientsList />} />
           <Route path='/logs' element={<LoginLogs />} />
+          {/* <Route path='/clients?page=user_list' element={<Client />} /> */}
+          <Route path='/client' element={<Client />} />
+          
         </Route>
         {/* !isAuth() ? not auth : auth */}
         <Route path="/login"

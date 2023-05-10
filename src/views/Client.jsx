@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-
+import TabClientDetails from './TabClientDetails';
 
 const tabLabel = [
     'Client Details',
@@ -65,6 +65,7 @@ export default function Client () {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
+        <TabClientDetails></TabClientDetails>
       </TabPanel>
       <TabPanel value={value} index={1}>
         {tabLabel[1]}
