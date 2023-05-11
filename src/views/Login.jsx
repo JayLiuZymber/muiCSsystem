@@ -1,27 +1,21 @@
 import * as React from "react";
 import { useState } from 'react';
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
 import MuiAlert from '@mui/material/Alert';
 
 // router
 import { useNavigate, useLocation } from "react-router-dom";
 // redux
-import { useSelector, useDispatch } from "react-redux";
-import { setUserInfo } from "../store/mainSlice";
+import {  useDispatch } from "react-redux";
+import { setUserInfo, setIsLogin } from "../store/mainSlice";
 
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;
@@ -64,12 +58,11 @@ export default function Login() {
 
   const handleCheck = () => {
     // setTransition(() => Transition);
-    setOpenLoginSuccess(true);
-    // setOpenLoginError(true);
+    // setOpenLoginSuccess(true);
   };
 
   const handleClose = () => {
-    setOpenLoginSuccess(false);
+    // setOpenLoginSuccess(false);
   };
 
   const handleChange = (prop) => (event) => {
@@ -98,9 +91,9 @@ export default function Login() {
 
     const csid = data.get("cs_id");
     const pw = data.get("password");
-    if (csid == '')
+    if (csid === '')
       setErrorTextID(["CS ID can not be empty"]);
-    if (pw == '')
+    if (pw === '')
       setErrorTextPassword(["Password can not be empty"]);
     if (csid !== '' && pw !== '') {
       login();
@@ -126,13 +119,26 @@ export default function Login() {
       })
     );
 
-    if (state == null) {
-      // handleCheck();
-      // setOpenLoginSuccess(true);
-      navigate("/", { state: { showSnackbar: true } });
+    dispatch(setIsLogin({
+      value: true
+    }))
 
-    } else
-      navigate(state.from.pathname);
+    navigate("/", { state: { showSnackbar: true } });
+
+    // if (state == null) {
+    //   // handleCheck();
+    //   // setOpenLoginSuccess(true);
+    //   // dispatch(
+    //   //   setSnackbar({
+    //   //     isOpen: true,
+    //   //     msg: "Login Success"
+    //   //   })
+
+    //   // );
+    //   navigate("/", { state: { showSnackbar: true } });
+
+    // } else
+    //   navigate(state.from.pathname);
   };
 
   return (
