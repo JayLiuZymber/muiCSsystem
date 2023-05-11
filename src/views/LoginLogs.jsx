@@ -74,15 +74,17 @@ export default function LoginLogs () {
     const [value, setValue] = React.useState(null);
     
   return (
-    <Box sx={{ width:'70vw', m:2 }}>
+    <Box sx={{ minHeight: 520, width:'70vw', m:2, color:'#5D737E'}}>
       {/* <Box sx={{ height: 400, width: '70vw' }}> */}
-      <Grid container rowSpacing={1}>
-        <Grid display="flex" xs={6} sm={6}>
+      <Grid container rowSpacing={0}>
+        <Grid display="flex" xs={12} sm={12}>
           <h3>Login Logs ({rows.length})</h3>
+        </Grid>
+        <Grid display="flex" xs={12} sm={12}>
+          <h4>Duration</h4>
         </Grid>
       </Grid>
       <DataGrid
-        
         rows={rows}
         columns={columns}
         initialState={{
