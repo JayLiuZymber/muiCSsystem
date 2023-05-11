@@ -9,42 +9,30 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
-import IconButton from '@mui/material/IconButton';
-import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
-// Mobile Status
-function createData(mobile, status) {
-    return { mobile, status };
+const title = 'AD Status';
+const heads = [
+    'Status', 
+    'Update'
+];
+function createData(status, update) {
+    return { status, update };
 }
-
-const title = 'Client AD OFF/REST';
-const heads = ['Mobile', 'Status'];
 const rows = [
-    createData('1122', 'OK'),
-    createData('2233', 'OFF'),
-    createData('334455', 'REST'),
-    createData('456', '-'),
-    createData('5566', '-'),
+    createData('ON', '2023-04-08 11:22:33'),
+    createData('ON', '2023-04-05 11:22:33'),
+    createData('ON', '2023-04-03 11:22:33'),
+    createData('ON', '2023-04-02 11:22:33'),
+    createData('ON', '2023-04-01 11:22:33'),
 ];
 
-export default function ClientFlowerRank() {
-/* 
-W3Schools Tryit Editor
-https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_all
-*/
-    const pageLoadTime = new Date().toLocaleString('sv-SE'); //2023-05-08 15:23:26
-
-    function refreshPage() {
-        window.location.reload(false);
-    }
-
+export default function GridADStatus() {
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
             width: '35vw',
-            // minWidth: 300,
-            // bgcolor: '#777',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>
@@ -52,20 +40,15 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                 height: 50,
                 pl: 2,
             }}>
-                <h2>{title}
-                    <IconButton onClick={refreshPage}
-                        aria-label="refresh page" component="label">
-                        <RefreshIcon />
-                    </IconButton>
-                </h2>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 280 }} aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
@@ -75,25 +58,17 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow
-                        key={row.mobile}
+                        <TableRow 
+                        key={row.update}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                        <TableCell align="left" component="th" scope="row">
-                            {row.mobile}
-                        </TableCell>
                         <TableCell align='center'>{row.status}</TableCell>
+                        <TableCell align='center'>{row.update}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>
                 </Table>
                 </TableContainer>
-            </Paper>
-
-            <Paper align='right' variant="" square sx={{
-                height: 50,
-            }}>
-                Update: {pageLoadTime}
             </Paper>
         </Stack>
     );

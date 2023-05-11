@@ -9,13 +9,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+import IconButton from '@mui/material/IconButton';
+import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
 // Mobile Status
 function createData(mobile, status) {
     return { mobile, status };
 }
 
-const title = 'Client AD OFF/REST';
+const title = 'Client Flower Rank';
 const heads = ['Mobile', 'Status'];
 const rows = [
     createData('1122', 'OK'),
@@ -23,15 +25,27 @@ const rows = [
     createData('334455', 'REST'),
     createData('456', '-'),
     createData('5566', '-'),
+    createData('78', '-'),
 ];
 
-export default function ClientAD() {
+export default function ClientFlowerRank() {
+/*
+W3Schools Tryit Editor
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_all
+*/
+    const pageLoadTime = new Date().toLocaleString('sv-SE'); //2023-05-08 15:23:26
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
             width: '35vw',
-            // bgcolor: '#777',
+            // minWidth: 300,
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>
@@ -39,15 +53,20 @@ export default function ClientAD() {
                 height: 50,
                 pl: 2,
             }}>
-                <h2>{title}</h2>
+                <h2>{title}
+                    <IconButton onClick={refreshPage}
+                        aria-label="refresh page" component="label">
+                        <RefreshIcon />
+                    </IconButton>
+                </h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
-                <Table aria-label="simple table">
+                <Table sx={{ minWidth: 280 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
                             {heads.map((head) => (
@@ -57,7 +76,7 @@ export default function ClientAD() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow 
+                        <TableRow
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
@@ -70,6 +89,12 @@ export default function ClientAD() {
                     </TableBody>
                 </Table>
                 </TableContainer>
+            </Paper>
+
+            <Paper align='right' variant="" square sx={{
+                height: 50,
+            }}>
+                Update: {pageLoadTime}
             </Paper>
         </Stack>
     );

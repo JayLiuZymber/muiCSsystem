@@ -10,33 +10,30 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
-// Mobile Name Type Region2 Created
-function createData(mobile, name, type, region2, created) {
-    return { mobile, name, type, region2, created };
+// Mobile Status
+function createData(mobile, status) {
+    return { mobile, status };
 }
 
-const title = 'New Assigned Clients';
-const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];
+const title = 'Client AD OFF/REST';
+const heads = ['Mobile', 'Status'];
 const rows = [
-    createData('12525353', ['-'],
-        'Type1', '-', '2023-05-02 15:25:36'),
-    createData('25388', ['-'],
-        '-', '-', '2023-05-01 15:25:36'),
-    createData('38758', ['-'],
-        '-', '-', '2023-04-22 15:25:36'),
-    createData('4858', ['-'],
-        'Type1', '-', '2023-03-12 15:25:36'),
-    createData('5859628', ['-'],
-        'Type1', '-', '2023-03-02 15:25:36'),
+    createData('1122', 'OK'),
+    createData('2233', 'OFF'),
+    createData('334455', 'REST'),
+    createData('456', '-'),
+    createData('5566', '-'),
+    createData('66', '-'),
+    createData('789', '-'),
 ];
 
-export default function NewAssignedClients() {
+export default function ClientAD() {
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '70vw',
-            // bgcolor: '#777',
+            width: '35vw',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>
@@ -49,7 +46,7 @@ export default function NewAssignedClients() {
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
                 <Table aria-label="simple table">
@@ -62,17 +59,14 @@ export default function NewAssignedClients() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow
+                        <TableRow 
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align="left" component="th" scope="row">
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="left">{row.name}</TableCell>
-                        <TableCell align="center">{row.type}</TableCell>
-                        <TableCell align="center">{row.region2}</TableCell>
-                        <TableCell align="center">{row.created}</TableCell>
+                        <TableCell align='center'>{row.status}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

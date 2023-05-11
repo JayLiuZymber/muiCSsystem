@@ -9,42 +9,29 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
-import IconButton from '@mui/material/IconButton';
-import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
-// # Post ID Mobile
-function createData(hashtag, postid, mobile) {
-    return { hashtag, postid, mobile };
+// Mobile Status
+function createData(mobile, status) {
+    return { mobile, status };
 }
 
-const title = 'Client Heart Rank';
-const heads = ['#', 'Post ID', 'Mobile'];
+const title = 'Client Blog OFF';
+const heads = ['Mobile', 'Status'];
 const rows = [
-    createData('#1', '1', '1122'),
-    createData('#2', '15', '2233'),
-    createData('#10', '12', '334455'),
-    createData('#15', '25', '456'),
-    createData('#19', '88', '5566'),
+    createData('1122', '-'),
+    createData('2233', 'OFF'),
+    createData('334455', '-'),
+    createData('456', '-'),
+    createData('5566', '-'),
 ];
 
-export default function ClientHeartRank() {
-/*
-W3Schools Tryit Editor
-https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_all
-*/
-    const pageLoadTime = new Date().toLocaleString('sv-SE'); //2023-05-08 15:23:26
-
-    function refreshPage() {
-        window.location.reload(false);
-    }
-
+export default function ClientBlog() {
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
             width: '35vw',
-            // minWidth: 300,
-            // bgcolor: '#777',
+            bgcolor: '#fff',
             color: '#5D737E',
             },
         }}>
@@ -52,22 +39,17 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                 height: 50,
                 pl: 2,
             }}>
-                <h2>{title}
-                    <IconButton onClick={refreshPage}
-                        aria-label="refresh page" component="label">
-                        <RefreshIcon />
-                    </IconButton>
-                </h2>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{
                 height: 350,
-                // overflow: 'hidden',
+                overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 280 }} aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
-                        <TableRow sx={{  height: 80 }} >
+                        <TableRow sx={{ height: 80 }} >
                             {heads.map((head) => (
                                 <TableCell key={head} align="center">{head} </TableCell>
                             ))}
@@ -75,26 +57,19 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow
+                        <TableRow 
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                        <TableCell align="center" component="th" scope="row">
-                            {row.hashtag}
+                        <TableCell align="left" component="th" scope="row">
+                            {row.mobile}
                         </TableCell>
-                        <TableCell align='center'>{row.postid}</TableCell>
-                        <TableCell align='left'>{row.mobile}</TableCell>
+                        <TableCell align='center'>{row.status}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>
                 </Table>
                 </TableContainer>
-            </Paper>
-
-            <Paper align='right' variant="" square sx={{
-                height: 50,
-            }}>
-                Update: {pageLoadTime}
             </Paper>
         </Stack>
     );
