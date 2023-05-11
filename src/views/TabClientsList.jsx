@@ -29,7 +29,7 @@ const columns = [
     width: 200,
     // editable: true,
     headerAlign: 'center',
-    align: 'center',
+    // align: 'center',
   },
   {
     field: 'type',
@@ -49,6 +49,7 @@ const columns = [
   },
 ];
 
+// todo name: [<ChatBubbleIcon /> ,'xxx']
 const rows = [
   { id: 1, mobile: '12', name: 'Snow', type: 'Type1', region2: '-' },
   { id: 2, mobile: '2', name: 'Lannister', type: '-', region2: '-' },
@@ -72,13 +73,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function TabClientsList() {
   const defaultProps = {
-    options: rows.name,
-    getOptionLabel: (option) => option.mobile,
+    options: rows,
+    getOptionLabel: (option) => [option.name, option.mobile]
   };
-  const flatProps = {
-    options: rows.map((option) => option.mobile),
-  };
-  const [value, setValue] = React.useState(null);
+  // const flatProps = {
+  //   options: rows.map((option) => option.mobile),
+  // };
+  // const [value, setValue] = React.useState(null);
 
   return (
     <Box sx={{ height: 400, width: '70vw', color:'#5D737E' }}>
@@ -88,12 +89,18 @@ export default function TabClientsList() {
         </Grid>
         <Grid display="flex" xs={6} sm={6}>
           <Autocomplete
-            // {...defaultProps}
-            freeSolo
+            {...defaultProps}
             sx={{
               minWidth: 200, }}
             id="include-input-in-list"
+            freeSolo
             includeInputInList
+            renderOption={(props, option) => (
+              <Box component="li" {...props}>
+                {option.name} <br />
+                ({option.mobile})
+              </Box>
+            )}
             renderInput={(params) => (
               <TextField {...params} label="Mobile or Name" 
                 // InputProps={{
