@@ -1,13 +1,17 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
-import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+
+import SearchIcon from '@mui/icons-material/Search';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
@@ -77,25 +81,33 @@ export default function TabClientsList() {
   const [value, setValue] = React.useState(null);
 
   return (
-    <Box sx={{ height: 400, width: '70vw' }}>
+    <Box sx={{ height: 400, width: '70vw', color:'#5D737E' }}>
       <Grid container rowSpacing={1}>
         <Grid display="flex" xs={6} sm={6}>
           <h3>Clients List ({rows.length})</h3>
         </Grid>
-        <Grid display="flex" xs={6} sm={6} sx={{
-          // textAlign: 'right', 
-          // alignItems: 'right', 
-        }}>
+        <Grid display="flex" xs={6} sm={6}>
           <Autocomplete
             // {...defaultProps}
+            freeSolo
             sx={{
               minWidth: 200, }}
             id="include-input-in-list"
             includeInputInList
             renderInput={(params) => (
-              <TextField {...params} label="Mobile or Name" variant="standard" />
+              <TextField {...params} label="Mobile or Name" 
+                // InputProps={{
+                //   startAdornment: (
+                //     <InputAdornment position="end">
+                //       <SearchIcon />
+                //     </InputAdornment>
+                //   ),
+                // }}
+                variant="standard"
+                />
             )}
           />
+          <SearchIcon sx={{my:2}}/>
         </Grid>
       </Grid>      
       <DataGrid
