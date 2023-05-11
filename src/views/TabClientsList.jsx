@@ -1,6 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid,
+  GridToolbar,
+  GridToolbarQuickFilter,
+  GridLogicOperator } from '@mui/x-data-grid';
+import { useDemoData } from '@mui/x-data-grid-generator';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Paper from '@mui/material/Paper';
@@ -8,11 +12,12 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
 
+import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+const VISIBLE_FIELDS = ['mobile', 'name', 'type', 'region2'];
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
   {
@@ -82,6 +87,36 @@ export default function TabClientsList() {
   // };
   // const [value, setValue] = React.useState(null);
 
+  // console.log('VISIBLE_FIELDS', VISIBLE_FIELDS);
+  const { data } = useDemoData({
+    dataSet: 'Employee',
+    visibleFields: VISIBLE_FIELDS,
+    // rowLength: 100,
+  });
+
+  const filterColumns = React.useMemo(
+    () =>
+      data.columns
+        .filter((column) => VISIBLE_FIELDS.includes(column.field))
+        .map((column) => {
+          if (column.field === 'name') {
+            return {
+              ...column,
+              // getApplyQuickFilterFn: column.value,
+            };
+          }
+          if (column.field === 'region2' || 
+              column.field === 'type' ) {
+            return {
+              ...column,
+              getApplyQuickFilterFn: undefined,
+            };
+          }
+          return column;
+        }),
+    [data.columns],
+  );
+
   return (
     <Box sx={{ width: '70vw', color:'#5D737E' }}>
       <Grid container rowSpacing={1}>
@@ -112,7 +147,17 @@ export default function TabClientsList() {
                 //   ),
                 // }}
                 variant="standard"
+              >
+                <GridToolbarQuickFilter
+                  quickFilterParser={(searchInput) =>
+                    searchInput
+                      .split(',')
+                      .map((value) => value.trim())
+                      .filter((value) => value !== '')
+                  }
                 />
+                </TextField>
+                
             )}
           />
           <SearchIcon sx={{my:2}}/>
@@ -128,10 +173,18 @@ export default function TabClientsList() {
               pageSize: 10,
             },
           },
+          filter: {
+            ...data.initialState?.filter,
+            filterModel: {
+              items: [],
+              quickFilterLogicOperator: GridLogicOperator.Or,
+            },
+          },
         }}
         pageSizeOptions={[10, 20, 50]}
         // checkboxSelection
         disableRowSelectionOnClick
+        // slots={{ toolbar: GridToolbar }}
       />
     </Box>
   );
