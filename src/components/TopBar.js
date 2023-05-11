@@ -60,10 +60,11 @@ export default function TopBar() {
     const id=event.target.id;
     switch(id){
       case menuList[1]:
-        // todo move to Login Logs
         navigate('/logs');
         break;
       case menuList[2]:
+        Cookie.remove("name");
+        Cookie.remove("cs_id");
         dispatch(removeUserInfo());
         navigate('/login');
         break;
