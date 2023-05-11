@@ -25,6 +25,23 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
+function Title() {
+  return (
+    <Typography
+      variant="h4"
+      color="#5D737E"
+      sx={{
+        marginLeft: 4,
+        marginTop: 2,
+      }}
+    >
+      CS <br />
+      Admin <br />
+      System
+    </Typography>
+  );
+}
+
 function Copyright(props) {
   return (
     <Typography
@@ -124,35 +141,14 @@ export default function Login() {
     }))
 
     navigate("/", { state: { showSnackbar: true } });
-
-    // if (state == null) {
-    //   // handleCheck();
-    //   // setOpenLoginSuccess(true);
-    //   // dispatch(
-    //   //   setSnackbar({
-    //   //     isOpen: true,
-    //   //     msg: "Login Success"
-    //   //   })
-
-    //   // );
-    //   navigate("/", { state: { showSnackbar: true } });
-
-    // } else
-    //   navigate(state.from.pathname);
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {/* CS box */}
-      <Box
-        sx={{
-          marginLeft: 4,
-        }}
-      >
-        <h1>
-          CS <br /> Admin <br /> System
-        </h1>
+      <Box>
+        <Title />
       </Box>
 
       {/* Sigin in box */}
@@ -182,7 +178,8 @@ export default function Login() {
 
       {/* Login box */}
       <Box
-        component="button"
+        component="div"
+        bgcolor={'#fff'}
         sx={{
           position: "absolute",
           top: 160,
@@ -191,7 +188,8 @@ export default function Login() {
           display: "flex",
           flexDirection: "column",
           padding: 2,
-          // border: '1px #BEC6CA',
+          borderStyle: 'solid',
+          borderWidth: '1px',
           width: 300,
           maxWidth: "40%",
           height: 400,

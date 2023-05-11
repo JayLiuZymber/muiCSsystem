@@ -5,6 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsLogin } from '../store/mainSlice';
+import Alert from '@mui/material/Alert';
 
 import GridNewAssignedClients from './GridNewAssignedClients';
 import GridAssignedClients from './GridAssignedClients';
@@ -64,8 +65,12 @@ export default function Home(props) {
                 onClose={() => setShowSnackbar(false)}
                 autoHideDuration={3000}
                 sx={{ width: '100%' }}
-                message="Login Success!"
-            />
+            >
+                <Alert severity="success" sx={{ width: '100%' }}>
+                Login Success!
+                </Alert>
+          </Snackbar>
+
         </div>
     )
 };
