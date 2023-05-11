@@ -16,24 +16,32 @@ const columns = [
     headerName: 'Mobile', 
     width: 200,
     // editable: true,
+    headerAlign: 'center',
+    align: 'center',
   },
   {
     field: 'name',
     headerName: 'Name',
     width: 200,
     // editable: true,
+    headerAlign: 'center',
+    align: 'center',
   },
   {
     field: 'type',
     headerName: 'Type',
     width: 100,
     // editable: true,
+    headerAlign: 'center',
+    align: 'center',
   },
   {
     field: 'region2',
     headerName: 'Region2',
     width: 150,
     // editable: true,
+    headerAlign: 'center',
+    align: 'center',
   },
 ];
 
@@ -45,8 +53,11 @@ const rows = [
   { id: 5, mobile: '56', name: 'Targaryen', type: '-', region2: '-' },
   { id: 6, mobile: '68', name: '-', type: '-', region2: '-' },
   { id: 7, mobile: '7', name: 'Clifford', type: '-', region2: '-' },
-  { id: 8, mobile: '99', name: 'Frances', type: '-', region2: '-' },
-  { id: 9, mobile: '1001', name: 'Roxie', type: '-', region2: '-' },
+  { id: 8, mobile: '89', name: 'Frances', type: '-', region2: '-' },
+  { id: 9, mobile: '9001', name: 'Roxie', type: '-', region2: '-' },
+  { id: 10, mobile: '1011', name: 'A', type: '-', region2: '-' },
+  { id: 11, mobile: '1101', name: 'B', type: '-', region2: '-' },
+  { id: 13, mobile: '1301', name: 'C', type: '-', region2: '-' },
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -93,6 +104,7 @@ export default function TabClientsList() {
         initialState={{
           pagination: {
             paginationModel: {
+              page: 0,
               pageSize: 10,
             },
           },

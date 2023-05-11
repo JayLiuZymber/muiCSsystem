@@ -21,7 +21,7 @@ const columns = [
     width: 200,
     // editable: true,
     headerAlign: 'center',
-    // textCenter: true,
+    align: 'center',
   },
   {
     field: 'reason',
@@ -29,6 +29,7 @@ const columns = [
     width: 200,
     // editable: true,
     headerAlign: 'center',
+    align: 'center',
   },
   {
     field: 'timestamp',
@@ -36,6 +37,7 @@ const columns = [
     width: 200,
     // editable: true,
     headerAlign: 'center',
+    align: 'center',
   },
 ];
 
@@ -49,6 +51,9 @@ const rows = [
   { id: 7, status: 'Success', reason: '-', timestamp: '2023-05-03 11:02:03'},
   { id: 8, status: 'Success', reason: '-', timestamp: '2023-05-02 11:02:03'},
   { id: 9, status: 'Success', reason: '-', timestamp: '2023-05-01 11:02:03'},
+  { id: 10, status: 'Success', reason: '-', timestamp: '2023-04-21 11:02:03'},
+  { id: 11, status: 'Success', reason: '-', timestamp: '2023-04-11 11:02:03'},
+  { id: 12, status: 'Success', reason: '-', timestamp: '2023-04-01 11:02:03'},
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
