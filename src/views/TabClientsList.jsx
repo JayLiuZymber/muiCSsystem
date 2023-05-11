@@ -49,6 +49,7 @@ const columns = [
   },
 ];
 
+// todo mobile: <Link to='/client' >xxx</Link>
 // todo name: [<ChatBubbleIcon /> ,'xxx']
 const rows = [
   { id: 1, mobile: '12', name: 'Snow', type: 'Type1', region2: '-' },

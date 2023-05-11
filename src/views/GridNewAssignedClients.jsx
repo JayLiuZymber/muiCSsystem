@@ -10,6 +10,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+// router
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 // Mobile Name Type Region2 Created
 function createData(mobile, name, type, region2, created) {
     return { mobile, name, type, region2, created };
@@ -18,19 +21,35 @@ function createData(mobile, name, type, region2, created) {
 const title = 'New Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];
 const rows = [
-    createData('12525353', ['-'],
+    createData(
+        [<Link to='/client' >12525353</Link>],
+        ['-'],
         'Type1', '-', '2023-05-02 15:25:36'),
-    createData('25388', ['-'],
+    createData(
+        [<Link to='/client' >25388</Link>],
+        ['-'],
         '-', '-', '2023-05-01 15:25:36'),
-    createData('38758', ['-'],
+    createData(
+        [<Link to='/client' >38758</Link>],
+        ['-'],
         '-', '-', '2023-04-22 15:25:36'),
-    createData('4858', ['-'],
+    createData(
+        [<Link to='/client' >4858</Link>],
+        ['-'],
         'Type1', '-', '2023-03-12 15:25:36'),
-    createData('5859628', ['-'],
+    createData(
+        [<Link to='/client' >5859628'</Link>],
+        ['-'],
         'Type1', '-', '2023-03-02 15:25:36'),
 ];
 
 export default function GridNewAssignedClients() {
+    
+    // router
+    const { state } = useLocation();
+    // console.log('state', state);
+    const navigate = useNavigate();
+    
     return (
         <Stack spacing={0} sx={{
             display: 'flex',
