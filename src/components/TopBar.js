@@ -73,19 +73,7 @@ export default function TopBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
-        {/* <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        /> */}
-      </FormGroup>
-      <AppBar position="static" sx={{color:'#5D737E', bgcolor:'#fff'}}>
+      <AppBar elevation='0' position="static" sx={{color:'#5D737E', bgcolor:'#fff'}}>
         <Toolbar>
           <Typography align='left' variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Overview
