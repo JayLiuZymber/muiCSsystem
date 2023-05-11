@@ -11,6 +11,11 @@ const initialState = {
         name: "",
         cs_id: "",
     },
+    snackbar:{
+        isOpen: false,
+        msg:""
+    },
+    isLogin:false
 }
 
 export const mainSlice = createSlice({
@@ -32,10 +37,16 @@ export const mainSlice = createSlice({
             // Cookies.remove('email')
             Cookies.remove('name')
             Cookies.remove('cs_id')
+        },
+        setSnackbar(state, action) {
+            state.snackbar = action.payload
+        },
+        setIsLogin(state, action) {
+            state.isLogin = action.payload.value
         }
     },
 })
 
-export const { setUserInfo, removeUserInfo } = mainSlice.actions
+export const { setUserInfo, removeUserInfo, setSnackbar,setIsLogin } = mainSlice.actions
 
 export default mainSlice.reducer
