@@ -51,9 +51,8 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
         }}>
             <Paper variant="outlined" square sx={{
                 height: 50,
-                pl: 2,
             }}>
-                <h2>{title}
+                <h2  style={{ paddingLeft: "20px" }}>{title}
                     <IconButton onClick={refreshPage}
                         aria-label="refresh page" component="label">
                         <RefreshIcon />

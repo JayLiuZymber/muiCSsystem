@@ -42,11 +42,10 @@ export default function AssignedClients() {
         }}>
             <Paper variant="outlined" square sx={{
                 height: 50,
-                pl: 2,
                 // alignItems: 'center',
                 // verticalAlign: 'middle',
             }}>
-                <h2>{title} </h2>
+                <h2 style={{paddingLeft: "20px"}}>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{

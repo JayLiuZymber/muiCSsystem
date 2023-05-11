@@ -12,7 +12,7 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 const title = 'Blog Status';
 const heads = [
-    'Status', 
+    'Status',
     'Update'
 ];
 function createData(status, update) {
@@ -31,43 +31,42 @@ export default function GridBlogStatus() {
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '35vw',
-            bgcolor: '#fff',
-            color: '#5D737E',
+                width: '35vw',
+                bgcolor: '#fff',
+                color: '#5D737E',
             },
         }}>
             <Paper variant="outlined" square sx={{
                 height: 50,
-                pl: 2,
             }}>
-                <h2>{title}</h2>
+                <h2 style={{ paddingLeft: "20px" }}>{title}</h2>
             </Paper>
 
-            <Paper variant="outlined"  square sx={{
+            <Paper variant="outlined" square sx={{
                 height: 350,
                 overflow: 'auto',
             }}>
                 <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow sx={{  height: 80 }} >
-                            {heads.map((head) => (
-                                <TableCell key={head} align="center">{head} </TableCell>
+                    <Table aria-label="simple table">
+                        <TableHead>
+                            <TableRow sx={{ height: 80 }} >
+                                {heads.map((head) => (
+                                    <TableCell key={head} align="center">{head} </TableCell>
+                                ))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                                <TableRow
+                                    key={row.update}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell align='center'>{row.status}</TableCell>
+                                    <TableCell align='center'>{row.update}</TableCell>
+                                </TableRow>
                             ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    {rows.map((row) => (
-                        <TableRow 
-                        key={row.update}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                        <TableCell align='center'>{row.status}</TableCell>
-                        <TableCell align='center'>{row.update}</TableCell>
-                        </TableRow>
-                    ))}
-                    </TableBody>
-                </Table>
+                        </TableBody>
+                    </Table>
                 </TableContainer>
             </Paper>
         </Stack>
