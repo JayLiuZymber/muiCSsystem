@@ -39,22 +39,22 @@ export default function Home(props) {
                 <Grid container rowSpacing={2}
                     columnSpacing={{ xs: 2, sm: 3, md: 4 }}>
                     <Grid display="flex" xs={12} sm={12}>
-                        <NewAssignedClients></NewAssignedClients>
+                        <GridNewAssignedClients></GridNewAssignedClients>
                     </Grid>
                     <Grid display="flex" xs={12} sm={12}>
-                        <AssignedClients></AssignedClients>
+                        <GridAssignedClients></GridAssignedClients>
                     </Grid>
                     <Grid display="flex" xs={6} sm={6}>
-                        <ClientAD></ClientAD>
+                        <GridClientAD></GridClientAD>
                     </Grid>
                     <Grid display="flex" xs={6} sm={6}>
-                        <ClientBlog></ClientBlog>
+                        <GridClientBlog></GridClientBlog>
                     </Grid>
                     <Grid display="flex" xs={6} sm={6}>
-                        <ClientFlowerRank></ClientFlowerRank>
+                        <GridClientFlowerRank></GridClientFlowerRank>
                     </Grid>
                     <Grid display="flex" xs={6} sm={6}>
-                        <ClientHeartRank></ClientHeartRank>
+                        <GridClientHeartRank></GridClientHeartRank>
                     </Grid>
                 </Grid>
             </Box>
