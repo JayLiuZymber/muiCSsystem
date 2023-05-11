@@ -2,17 +2,19 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+// router
 import { useLocation } from "react-router-dom";
+// redux
 import { useSelector, useDispatch } from "react-redux";
 import { setIsLogin } from '../store/mainSlice';
-import Alert from '@mui/material/Alert';
 
-import GridNewAssignedClients from './GridNewAssignedClients';
-import GridAssignedClients from './GridAssignedClients';
-import GridClientAD from './GridClientAD';
-import GridClientBlog from './GridClientBlog';
-import GridClientFlowerRank from './GridClientFlowerRank';
-import GridClientHeartRank from './GridClientHeartRank';
+import GridNewAssignedClients from '../components/home/GridNewAssignedClients';
+import GridAssignedClients from '../components/home/GridAssignedClients';
+import GridClientAD from '../components/home/GridClientAD';
+import GridClientBlog from '../components/home/GridClientBlog';
+import GridClientFlowerRank from '../components/home/GridClientFlowerRank';
+import GridClientHeartRank from '../components/home/GridClientHeartRank';
 
 
 export default function Home(props) {
