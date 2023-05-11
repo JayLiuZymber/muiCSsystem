@@ -60,21 +60,20 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function LoginLogs () {
     const defaultProps = {
-    options: rows.reason,
-    getOptionLabel: (option) => option.status,
+      options: rows.reason,
+      getOptionLabel: (option) => option.status,
     };
-    const flatProps = {
-    options: rows.map((option) => option.status),
+      const flatProps = {
+      options: rows.map((option) => option.status),
     };
     const [value, setValue] = React.useState(null);
-    const count = 46;
     
   return (
     <Box sx={{ width:'70vw', m:2 }}>
       {/* <Box sx={{ height: 400, width: '70vw' }}> */}
       <Grid container rowSpacing={1}>
         <Grid display="flex" xs={6} sm={6}>
-          <h3>Login Logs ({count})</h3>
+          <h3>Login Logs ({rows.length})</h3>
         </Grid>
       </Grid>
       <DataGrid

@@ -64,13 +64,12 @@ export default function TabClientsList() {
     options: rows.map((option) => option.mobile),
   };
   const [value, setValue] = React.useState(null);
-  const count = 79;
 
   return (
     <Box sx={{ height: 400, width: '70vw' }}>
       <Grid container rowSpacing={1}>
         <Grid display="flex" xs={6} sm={6}>
-          <h3>Clients List ({count})</h3>
+          <h3>Clients List ({rows.length})</h3>
         </Grid>
         <Grid display="flex" xs={6} sm={6} sx={{
           // textAlign: 'right', 
