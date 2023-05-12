@@ -84,7 +84,7 @@ export default function GridNewAssignedClients() {
                         <TableBody>
                             {rows.map((row) => (
                                 <TableRow
-                                    key={row.mobile}
+                                    key={row.index}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell align="left" component="th" scope="row">
