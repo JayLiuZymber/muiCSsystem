@@ -9,14 +9,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import homeScss from "assets/scss/home.module.scss";
-import FakeData from "utils/fakeData";
-
-
 // router
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-// Mobile Name Type Region2 Created
+import homeScss from "assets/scss/home.module.scss";
+import FakeData from "utils/fakeData";
 
 const title = 'New Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];

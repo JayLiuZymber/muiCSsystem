@@ -11,20 +11,19 @@ import TableRow from '@mui/material/TableRow';
 // icon
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+import FakeData from 'utils/fakeData';
+
 const title = 'Blog Status';
 const heads = [
     'Status',
     'Update'
 ];
-function createData(status, update) {
-    return { status, update };
-}
 const rows = [
-    createData('ON', '2023-05-07 11:22:33'),
-    createData('ON', '2023-05-05 11:22:33'),
-    createData('ON', '2023-05-03 11:22:33'),
-    createData('ON', '2023-05-02 11:22:33'),
-    createData('ON', '2023-05-01 11:22:33'),
+    FakeData.Status.createData('ON', '2023-05-07 11:22:33'),
+    FakeData.Status.createData('ON', '2023-05-05 11:22:33'),
+    FakeData.Status.createData('ON', '2023-05-03 11:22:33'),
+    FakeData.Status.createData('ON', '2023-05-02 11:22:33'),
+    FakeData.Status.createData('ON', '2023-05-01 11:22:33'),
 ];
 
 export default function GridBlogStatus() {

@@ -14,20 +14,16 @@ import IconButton from '@mui/material/IconButton';
 import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
 import homeScss from "assets/scss/home.module.scss";
-
-// # Post ID Mobile
-function createData(hashtag, postid, mobile) {
-    return { hashtag, postid, mobile };
-}
+import FakeData from 'utils/fakeData';
 
 const title = 'Client Heart Rank';
 const heads = ['#', 'Post ID', 'Mobile'];
 const rows = [
-    createData('#1', '1', '1122'),
-    createData('#2', '15', '2233'),
-    createData('#10', '12', '334455'),
-    createData('#15', '25', '456'),
-    createData('#19', '88', '5566'),
+    FakeData.ClientRank.createData('#1', '1', '1122'),
+    FakeData.ClientRank.createData('#2', '15', '2233'),
+    FakeData.ClientRank.createData('#10', '12', '334455'),
+    FakeData.ClientRank.createData('#15', '25', '456'),
+    FakeData.ClientRank.createData('#19', '88', '5566'),
 ];
 
 export default function ClientHeartRank() {

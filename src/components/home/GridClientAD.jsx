@@ -12,22 +12,18 @@ import TableRow from '@mui/material/TableRow';
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 import homeScss from "assets/scss/home.module.scss";
-
-// Mobile Status
-function createData(mobile, status) {
-    return { mobile, status };
-}
+import FakeData from 'utils/fakeData';
 
 const title = 'Client AD OFF/REST';
 const heads = ['Mobile', 'Status'];
 const rows = [
-    createData('1122', 'OK'),
-    createData('2233', 'OFF'),
-    createData('334455', 'REST'),
-    createData('456', '-'),
-    createData('5566', '-'),
-    createData('66', '-'),
-    createData('789', '-'),
+    FakeData.Client.createData('1122', 'OK'),
+    FakeData.Client.createData('2233', 'OFF'),
+    FakeData.Client.createData('334455', 'REST'),
+    FakeData.Client.createData('456', '-'),
+    FakeData.Client.createData('5566', '-'),
+    FakeData.Client.createData('66', '-'),
+    FakeData.Client.createData('789', '-'),
 ];
 
 export default function ClientAD() {

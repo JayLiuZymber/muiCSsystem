@@ -14,8 +14,6 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 import homeScss from "assets/scss/home.module.scss";
 import FakeData from "utils/fakeData";
 
-// Mobile Name Type Region2 Created
-
 const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [

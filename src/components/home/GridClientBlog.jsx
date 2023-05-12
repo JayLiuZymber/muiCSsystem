@@ -12,20 +12,16 @@ import TableRow from '@mui/material/TableRow';
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 import homeScss from "assets/scss/home.module.scss";
-
-// Mobile Status
-function createData(mobile, status) {
-    return { mobile, status };
-}
+import FakeData from 'utils/fakeData';
 
 const title = 'Client Blog OFF';
 const heads = ['Mobile', 'Status'];
 const rows = [
-    createData('1122', '-'),
-    createData('2233', 'OFF'),
-    createData('334455', '-'),
-    createData('456', '-'),
-    createData('5566', '-'),
+    FakeData.Client.createData('1122', '-'),
+    FakeData.Client.createData('2233', 'OFF'),
+    FakeData.Client.createData('334455', '-'),
+    FakeData.Client.createData('456', '-'),
+    FakeData.Client.createData('5566', '-'),
 ];
 
 export default function ClientBlog() {
