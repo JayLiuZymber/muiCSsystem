@@ -43,6 +43,9 @@ export default function TopBar() {
   const cs_id = useSelector((state) => state.main.user_info.cs_id);
   // console.log('name', name);
 
+  const title = useSelector((state) => state.main.topbar.title);
+  // console.log('title', title);
+
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
@@ -76,7 +79,7 @@ export default function TopBar() {
       <AppBar elevation='0' position="static" sx={{color:'#5D737E', bgcolor:'#fff'}}>
         <Toolbar>
           <Typography align='left' variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Overview
+            {title}
           </Typography>
           {auth && (
             <div>｜

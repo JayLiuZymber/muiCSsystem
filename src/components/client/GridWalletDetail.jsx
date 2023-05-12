@@ -18,9 +18,8 @@ export default function GridWalletDetail(props) {
         }}>
             <Paper variant="outlined" square sx={{
                 height: 50,
-                pl: 2,
             }}>
-                <h2>{title}</h2>
+                <h2 style={{ paddingLeft: "20px" }}>{title}</h2>
             </Paper>
         </Stack>
     )

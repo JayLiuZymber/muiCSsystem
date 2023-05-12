@@ -15,7 +15,10 @@ const initialState = {
         isOpen: false,
         msg:""
     },
-    isLogin:false
+    isLogin:false,
+    topbar:{
+        title:"",
+    },
 }
 
 export const mainSlice = createSlice({
@@ -43,10 +46,18 @@ export const mainSlice = createSlice({
         },
         setIsLogin(state, action) {
             state.isLogin = action.payload.value
-        }
+        },
+        setTopbar(state, action) {
+            state.topbar = action.payload
+        },
     },
 })
 
-export const { setUserInfo, removeUserInfo, setSnackbar,setIsLogin } = mainSlice.actions
+export const { setUserInfo, 
+    removeUserInfo, 
+    setSnackbar, 
+    setIsLogin, 
+    setTopbar, 
+} = mainSlice.actions
 
 export default mainSlice.reducer

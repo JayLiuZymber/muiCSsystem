@@ -16,11 +16,43 @@ import { Box } from "@mui/material";
 
 // router
 import { Link } from 'react-router-dom'
+// redux
+import { useSelector, useDispatch } from 'react-redux'
+import { setTopbar } from "../store/mainSlice";
+
+const title = 'CS System';
 
 export default function SideList() {
-  const [bOpenClient, setOpenClient] = React.useState(true);
-  const [bOpenSetting, setOpenSetting] = React.useState(true);
+  const dispatch = useDispatch();
 
+  function setTopbarTitle(text) {
+    dispatch(setTopbar({
+        title: text,
+    }))
+  }
+  /*
+  const handleClickItem = (event) => {
+    console.log(event);
+    // console.log('event.target.id', event.target.id); //id='' ???
+    const id=event.target.id;
+    switch (id) {
+      case "Home":
+        setTopbarTitle("Overview")
+        break;
+      case "Client":
+        setTopbarTitle("Client");
+        break;
+      case "Setting":
+        setTopbarTitle("Setting");
+        break;
+    }
+  }*/
+
+  const primarys = [
+    "Home",
+    "Clients",
+    "Settings",
+  ]
   const [listRoot, setListRoot] = useState([{
       title: "Home", link: "/", icon: <HomeIcon />
     },
@@ -34,11 +66,13 @@ export default function SideList() {
     },
   ]);
 
-  const clientClick = (event) => {
+  const [bOpenClient, setOpenClient] = React.useState(true);
+  const [bOpenSetting, setOpenSetting] = React.useState(true);
+  const handleClickClient = (event) => {
     setOpenClient(!bOpenClient);
   };
 
-  const settingClick = (event) => {
+  const handleClickSetting = (event) => {
     setOpenSetting(!bOpenSetting);
   };
 
@@ -66,27 +100,31 @@ export default function SideList() {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            <h2>CS System</h2>
+            <h2>{title} </h2>
           </ListSubheader>
         }
       >
         
-        <Link to={listRoot[0].link} 
-          style={{ textDecoration: 'none', color: '#fff' }} >
-          <ListItemButton>
-            <ListItemIcon>
-              {/* <HomeIcon /> */}
-              {listRoot[0].icon}
-            </ListItemIcon>
-            <ListItemText primary={listRoot[0].title} />
-          </ListItemButton>
-        </Link>
+        {listRoot.map((item,index) => {
+          return (
+          <Link to={item.link} 
+            style={{ textDecoration: 'none', color: '#fff' }} >
+            <ListItemButton onClick={() => setTopbarTitle("Overview")}>
+              <ListItemIcon>
+                {/* <HomeIcon /> */}
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </Link>
+          )
+        })}
 
-        <ListItemButton onClick={clientClick}>
+        <ListItemButton onClick={handleClickClient}>
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
-          <ListItemText primary="Clients" />
+          <ListItemText primary={primarys[1]} />
           {bOpenClient ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={bOpenClient} timeout="auto" unmountOnExit>
@@ -100,11 +138,12 @@ export default function SideList() {
                 <Link to={item.link} key={index}
                   style={{ textDecoration: 'none', color: '#fff' }} >
                   <ListItem disablePadding key={index}>
-                    <ListItemButton key={index} sx={{ pl: 2 }}>
+                    <ListItemButton key={index} sx={{ pl: 2 }} 
+                      onClick={() => setTopbarTitle("Clients")}>
                       <ListItemIcon>
                         {item.icon}
                       </ListItemIcon>
-                      <ListItemText primary={item.title}/>
+                      <ListItemText primary={item.title} />
                     </ListItemButton>
                   </ListItem>
                 </Link>
@@ -113,11 +152,11 @@ export default function SideList() {
           </List>
         </Collapse>
 
-        <ListItemButton onClick={settingClick}>
+        <ListItemButton onClick={handleClickSetting}>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
-          <ListItemText primary="Settings" />
+          <ListItemText primary={primarys[2]} />
           {bOpenSetting ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
         <Collapse in={bOpenSetting} timeout="auto" unmountOnExit>
@@ -131,7 +170,8 @@ export default function SideList() {
                 <Link to={item.link} key={index}
                   style={{ textDecoration: 'none', color: '#fff' }} >
                   <ListItem disablePadding key={index}>
-                    <ListItemButton key={index} sx={{ pl: 2 }}>
+                    <ListItemButton key={index} sx={{ pl: 2 }}
+                      onClick={() => setTopbarTitle("Settings")}>
                       <ListItemIcon>
                         {item.icon}
                       </ListItemIcon>
