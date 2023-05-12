@@ -12,6 +12,8 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 import IconButton from '@mui/material/IconButton';
 import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
+import homeScss from "assets/scss/home.module.scss";
+
 // Mobile Status
 function createData(mobile, status) {
     return { mobile, status };
@@ -49,10 +51,10 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
             color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" square sx={{
+            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
                 height: 50,
             }}>
-                <h2  style={{ paddingLeft: "20px" }}>{title}
+                <h2>{title}
                     <IconButton onClick={refreshPage}
                         aria-label="refresh page" component="label">
                         <RefreshIcon />
