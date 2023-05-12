@@ -37,8 +37,10 @@ export default function Home(props) {
     }
 
     return (
-        <div>
-            <Box sx={{ flexGrow: 0, m: 2, width: '70vw' }}>
+        <>
+            <Box sx={{ flexGrow: 0, m: 2, width: '70vw', 
+                // bgcolor: '#fff',
+                }}>
                 <Grid container rowSpacing={2}
                     columnSpacing={{ xs: 2, sm: 3, md: 4 }}>
                     <Grid display="flex" xs={12} sm={12}>
@@ -72,7 +74,6 @@ export default function Home(props) {
                 Login Success!
                 </Alert>
           </Snackbar>
-
-        </div>
+        </>
     )
 };

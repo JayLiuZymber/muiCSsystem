@@ -118,7 +118,9 @@ export default function TabClientsList() {
   );
 
   return (
-    <Box sx={{ width: '70vw', color:'#5D737E' }}>
+    <Box sx={{ width: '70vw', color:'#5D737E', 
+      // bgcolor: '#fff',
+      }}>
       <Grid container rowSpacing={1}>
         <Grid display="flex" xs={6} sm={6}>
           <h3>Clients List ({rows.length})</h3>

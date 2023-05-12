@@ -11,7 +11,9 @@ import GridBlogStatus from '../components/client/GridBlogStatus';
 export default function TabClientDetails(props) {
     return (
         <div>
-        <Box sx={{ flexGrow: 0, m:2,  width: '70vw'}}>
+        <Box sx={{ flexGrow: 0, m:2,  width: '70vw', 
+            // bgcolor: '#fff',
+            }}>
             <h3>TEST-STAGE-CLIENT  (886970974617)</h3>
             <Grid container rowSpacing={2}
                 columnSpacing={{ xs: 2, sm: 3, md: 4 }}>

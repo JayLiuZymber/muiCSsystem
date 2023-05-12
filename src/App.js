@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import SideList from "./components/SideList";
 import TopBar from "./components/TopBar";
-import BottomBar from "./components/BottomBar";
+// import BottomBar from "./components/BottomBar";
 
 import Snackbar from "@mui/material/Snackbar";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,7 +21,7 @@ function App() {
   return (
     <Box sx={{ display: "flex" }}>
       <SideList></SideList>
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main" sx={{ flexGrow: 1, bgcolor:'#fff' }}>
         <TopBar></TopBar>
         <Outlet />
       </Box>
