@@ -1,25 +1,26 @@
 import * as React from 'react';
+// import { bgcolor } from '@mui/system';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
+// import IconButton from '@mui/material/IconButton';
+// import Switch from '@mui/material/Switch';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import { bgcolor } from '@mui/system';
+// icon
+// import MenuIcon from '@mui/icons-material/Menu';
+// import AccountCircle from '@mui/icons-material/AccountCircle';
 
 // router
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useNavigate, useLocation } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { removeUserInfo } from "../store/mainSlice";
+import { removeUserInfo } from "store/mainSlice";
 // cookie
 import Cookie from "js-cookie";
 

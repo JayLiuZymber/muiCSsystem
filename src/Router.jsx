@@ -1,13 +1,13 @@
 import React from 'react';
 import App from './App';
 
-import Home from './views/Home';
-import ClientsList from './views/ClientsList';
-import LoginLogs from './views/LoginLogs';
-import Login from './views/Login';
-import PageNotFound from './views/404hit';
-// import PageNotFound from './views/404neon';
-import Client from './views/Client';
+import Home from 'views/Home';
+import ClientsList from 'views/ClientsList';
+import LoginLogs from 'views/LoginLogs';
+import Login from 'views/Login';
+import PageNotFound from 'views/404hit';
+// import PageNotFound from 'views/404neon';
+import Client from 'views/Client';
 
 import {
   BrowserRouter,

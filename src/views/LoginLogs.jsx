@@ -1,18 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
+// import PropTypes from 'prop-types';
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
+// import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { DataGrid } from '@mui/x-data-grid';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
-// Status
-// Reason
-// Timestamp
+// Status Reason Timestamp
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
   {

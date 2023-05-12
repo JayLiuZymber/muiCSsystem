@@ -1,8 +1,8 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+// import Box from '@mui/material/Box';
+// import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 const title = 'Client Detail';
 

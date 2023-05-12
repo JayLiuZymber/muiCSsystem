@@ -57,7 +57,9 @@ export default function Client () {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box sx={{ borderBottom: 1,
+        // borderColor: 'divider',
+        }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           {tabLabel.map((label, index) => (
                 <Tab label={label} {...a11yProps(index)} />

@@ -7,18 +7,19 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
+import { Box } from "@mui/material";
+// icon
 import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import { Box } from "@mui/material";
 
 // router
 import { Link } from 'react-router-dom'
 // redux
 import { useSelector, useDispatch } from 'react-redux'
-import { setTopbar } from "../store/mainSlice";
+import { setTopbar } from "store/mainSlice";
 
 const title = 'CS System';
 

@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
 import Box from "@mui/material/Box";
+import Snackbar from "@mui/material/Snackbar";
 
+import SideList from "components/SideList";
+import TopBar from "components/TopBar";
+// import BottomBar from "components/BottomBar";
 // router
 import { Outlet } from "react-router-dom";
-import SideList from "./components/SideList";
-import TopBar from "./components/TopBar";
-// import BottomBar from "./components/BottomBar";
-
-import Snackbar from "@mui/material/Snackbar";
+// redux
 import { useSelector, useDispatch } from "react-redux";
-import { setUserInfo, setSnackbar } from "./store/mainSlice";
+import { setUserInfo, setSnackbar } from "store/mainSlice";
 
 function App() {
   const isSnackbarOpen = useSelector((state) => state.main.snackbar.isOpen);

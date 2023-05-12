@@ -7,14 +7,14 @@ import Alert from '@mui/material/Alert';
 import { useLocation } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { setIsLogin } from '../store/mainSlice';
+import { setIsLogin } from 'store/mainSlice';
 
-import GridNewAssignedClients from '../components/home/GridNewAssignedClients';
-import GridAssignedClients from '../components/home/GridAssignedClients';
-import GridClientAD from '../components/home/GridClientAD';
-import GridClientBlog from '../components/home/GridClientBlog';
-import GridClientFlowerRank from '../components/home/GridClientFlowerRank';
-import GridClientHeartRank from '../components/home/GridClientHeartRank';
+import GridNewAssignedClients from 'components/home/GridNewAssignedClients';
+import GridAssignedClients from 'components/home/GridAssignedClients';
+import GridClientAD from 'components/home/GridClientAD';
+import GridClientBlog from 'components/home/GridClientBlog';
+import GridClientFlowerRank from 'components/home/GridClientFlowerRank';
+import GridClientHeartRank from 'components/home/GridClientHeartRank';
 
 
 export default function Home(props) {

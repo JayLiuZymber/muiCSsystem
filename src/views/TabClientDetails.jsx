@@ -2,11 +2,11 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
-import GridClientDetail from '../components/client/GridClientDetail';
-import GridWalletDetail from '../components/client/GridWalletDetail';
-import GridComplainRecord from '../components/client/GridComplainRecord';
-import GridADStatus from '../components/client/GridADStatus';
-import GridBlogStatus from '../components/client/GridBlogStatus';
+import GridClientDetail from 'components/client/GridClientDetail';
+import GridWalletDetail from 'components/client/GridWalletDetail';
+import GridComplainRecord from 'components/client/GridComplainRecord';
+import GridADStatus from 'components/client/GridADStatus';
+import GridBlogStatus from 'components/client/GridBlogStatus';
 
 export default function TabClientDetails(props) {
     return (
