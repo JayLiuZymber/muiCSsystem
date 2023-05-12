@@ -10,23 +10,23 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+import homeScss from "assets/scss/home.module.scss";
+import FakeData from "utils/fakeData";
+
 // Mobile Name Type Region2 Created
-function createData(mobile, name, type, region2) {
-    return { mobile, name, type, region2 };
-}
 
 const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [
-    createData('1122', [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
+    FakeData.createData('1122', [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
         'Type1', '-', '2023-05-04 15:25:36'),
-    createData('2233', ['-'],
+    FakeData.createData('2233', ['-'],
         '-', '-', '2023-05-02 15:25:36'),
-    createData('334455', [<ChatBubbleIcon key='Ace' />, 'Ace'],
+    FakeData.createData('334455', [<ChatBubbleIcon key='Ace' />, 'Ace'],
         '-', '-', '2023-04-21 15:25:36'),
-    createData('456', [<ChatBubbleIcon key='Bill' />, 'Bill'],
+    FakeData.createData('456', [<ChatBubbleIcon key='Bill' />, 'Bill'],
         'Type1', '-', '2023-03-11 15:25:36'),
-    createData('5566', [<ChatBubbleIcon key='Clark' />, 'Clark'],
+    FakeData.createData('5566', [<ChatBubbleIcon key='Clark' />, 'Clark'],
         'Type1', '-', '2023-03-10 15:25:36'),
 ];
 
@@ -40,12 +40,10 @@ export default function AssignedClients() {
             color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" square sx={{
+            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
                 height: 50,
-                // alignItems: 'center',
-                // verticalAlign: 'middle',
             }}>
-                <h2 style={{paddingLeft: "20px"}}>{title}</h2>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{

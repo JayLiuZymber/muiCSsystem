@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+import homeScss from "assets/scss/home.module.scss";
+
 // Mobile Status
 function createData(mobile, status) {
     return { mobile, status };
@@ -35,10 +37,10 @@ export default function ClientBlog() {
             color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" square sx={{
+            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
                 height: 50,
             }}>
-                <h2 style={{ paddingLeft: "20px" }}>{title}</h2>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined"  square sx={{
