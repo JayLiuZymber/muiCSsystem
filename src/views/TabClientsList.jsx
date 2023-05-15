@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid,
-  // GridToolbar,
+  GridToolbar,
   GridToolbarQuickFilter,
   GridLogicOperator } from '@mui/x-data-grid';
 import { useDemoData } from '@mui/x-data-grid-generator';
@@ -18,6 +18,7 @@ import SearchIcon from '@mui/icons-material/Search';
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 import CustomNoRowsOverlay from 'components/CustomDateGrid';
+// -----------------------------------------------------------------------------
 
 const VISIBLE_FIELDS = ['mobile', 'name', 'type', 'region2'];
 const columns = [
@@ -191,7 +192,17 @@ export default function TabClientsList() {
         disableRowSelectionOnClick
         slots={{
           noRowsOverlay: CustomNoRowsOverlay,
+          toolbar: GridToolbar,
         }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 500 },
+          },
+        }}
+        disableColumnFilter
+        disableColumnSelector
+        disableDensitySelector
       />
       </div>
     </Box>
