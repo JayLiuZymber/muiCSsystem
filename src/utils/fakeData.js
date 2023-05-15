@@ -1,5 +1,4 @@
-
-class FakeData {
+class AssignedClient {
     // Mobile Name Type Region2 Created
     static createData(mobile, name, type, region2, created) {
         return { mobile, name, type, region2, created };
@@ -23,8 +22,8 @@ class Status {
 class ClientRank {
     // # Post ID Mobile
     static createData(hashtag, postid, mobile) {
-    return { hashtag, postid, mobile };
-}
+        return { hashtag, postid, mobile };
+    }
 }
 
-export {FakeData,Client,Status,ClientRank}
+export { AssignedClient, Client, Status, ClientRank }

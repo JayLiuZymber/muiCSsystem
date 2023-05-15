@@ -10,26 +10,43 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // icon
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+// router
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
-import {FakeData} from "utils/fakeData";
+import { AssignedClient } from "utils/fakeData";
 
 const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [
-    FakeData.createData('1122', [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
+    AssignedClient.createData(
+        [<Link to='/client' >1122</Link>], 
+        [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
         'Type1', '-', '2023-05-04 15:25:36'),
-    FakeData.createData('2233', ['-'],
+    AssignedClient.createData(
+        [<Link to='/client' >2233</Link>], 
+        ['-'],
         '-', '-', '2023-05-02 15:25:36'),
-    FakeData.createData('334455', [<ChatBubbleIcon key='Ace' />, 'Ace'],
+    AssignedClient.createData(
+        [<Link to='/client' >334455</Link>], 
+        [<ChatBubbleIcon key='Ace' />, 'Ace'],
         '-', '-', '2023-04-21 15:25:36'),
-    FakeData.createData('456', [<ChatBubbleIcon key='Bill' />, 'Bill'],
+    AssignedClient.createData(
+        [<Link to='/client' >456</Link>], 
+        [<ChatBubbleIcon key='Bill' />, 'Bill'],
         'Type1', '-', '2023-03-11 15:25:36'),
-    FakeData.createData('5566', [<ChatBubbleIcon key='Clark' />, 'Clark'],
+    AssignedClient.createData(
+        [<Link to='/client' >5566</Link>], 
+        [<ChatBubbleIcon key='Clark' />, 'Clark'],
         'Type1', '-', '2023-03-10 15:25:36'),
 ];
 
 export default function AssignedClients() {
+    // router
+    const { state } = useLocation();
+    // console.log('state', state);
+    const navigate = useNavigate();
+
     return (
         <Stack spacing={0} sx={{
             display: 'flex',

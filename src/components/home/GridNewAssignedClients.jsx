@@ -13,29 +13,29 @@ import TableRow from '@mui/material/TableRow';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
-import {FakeData} from "utils/fakeData";
+import { AssignedClient } from "utils/fakeData";
 
 const title = 'New Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];
 const rows = [
-    FakeData.createData(
+    AssignedClient.createData(
         [<Link to='/client' >12525353</Link>],
         ['-'],
         'Type1', '-', '2023-05-02 15:25:36'),
-    FakeData.createData(
+    AssignedClient.createData(
         [<Link to='/client' >25388</Link>],
         ['-'],
         '-', '-', '2023-05-01 15:25:36'),
-    FakeData.createData(
+    AssignedClient.createData(
         [<Link to='/client' >38758</Link>],
         ['-'],
         '-', '-', '2023-04-22 15:25:36'),
-    FakeData.createData(
+    AssignedClient.createData(
         [<Link to='/client' >4858</Link>],
         ['-'],
         'Type1', '-', '2023-03-12 15:25:36'),
-    FakeData.createData(
-        [<Link to='/client' >5859628'</Link>],
+    AssignedClient.createData(
+        [<Link to='/client' >5859628</Link>],
         ['-'],
         'Type1', '-', '2023-03-02 15:25:36'),
 ];
