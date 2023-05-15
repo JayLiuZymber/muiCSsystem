@@ -12,16 +12,16 @@ import TableRow from '@mui/material/TableRow';
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 import homeScss from "assets/scss/home.module.scss";
-import {Client} from 'utils/fakeData';
+import {ClientStatus} from 'utils/fakeData';
 
 const title = 'Client Blog OFF';
 const heads = ['Mobile', 'Status'];
 const rows = [
-    Client.createData('1122', '-'),
-    Client.createData('2233', 'OFF'),
-    Client.createData('334455', '-'),
-    Client.createData('456', '-'),
-    Client.createData('5566', '-'),
+    ClientStatus.createData('1122', '-'),
+    ClientStatus.createData('2233', 'OFF'),
+    ClientStatus.createData('334455', '-'),
+    ClientStatus.createData('456', '-'),
+    ClientStatus.createData('5566', '-'),
 ];
 
 export default function ClientBlog() {
@@ -55,7 +55,7 @@ export default function ClientBlog() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow 
+                        <TableRow
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >

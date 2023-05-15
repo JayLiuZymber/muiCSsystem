@@ -14,17 +14,17 @@ import IconButton from '@mui/material/IconButton';
 import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 
 import homeScss from "assets/scss/home.module.scss";
-import {Client} from 'utils/fakeData';
+import {ClientStatus} from 'utils/fakeData';
 
 const title = 'Client Flower Rank';
 const heads = ['Mobile', 'Status'];
 const rows = [
-    Client.createData('1122', 'OK'),
-    Client.createData('2233', 'OFF'),
-    Client.createData('334455', 'REST'),
-    Client.createData('456', '-'),
-    Client.createData('5566', '-'),
-    Client.createData('78', '-'),
+    ClientStatus.createData('1122', 'OK'),
+    ClientStatus.createData('2233', 'OFF'),
+    ClientStatus.createData('334455', 'REST'),
+    ClientStatus.createData('456', '-'),
+    ClientStatus.createData('5566', '-'),
+    ClientStatus.createData('78', '-'),
 ];
 
 export default function ClientFlowerRank() {
