@@ -64,7 +64,7 @@ export default function AssignedClients() {
                 height: 350,
                 overflow: 'auto',
             }}>
-                <TableContainer component={Paper}>
+                <TableContainer component={Paper} elevation={0}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{ height: 80 }} >

@@ -75,7 +75,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                 height: 350,
                 overflow: 'auto',
             }}>
-                <TableContainer component={Paper}>
+                <TableContainer component={Paper} elevation={0}>
                 <Table sx={{ minWidth: 280 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{  height: 80 }} >
