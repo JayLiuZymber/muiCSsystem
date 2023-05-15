@@ -20,23 +20,23 @@ const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [
     AssignedClient.createData(
-        [<Link to='/client' >1122</Link>], 
+        [<Link to='/client' >1122</Link>],
         [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
         'Type1', '-', '2023-05-04 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >2233</Link>], 
+        [<Link to='/client' >2233</Link>],
         ['-'],
         '-', '-', '2023-05-02 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >334455</Link>], 
+        [<Link to='/client' >334455</Link>],
         [<ChatBubbleIcon key='Ace' />, 'Ace'],
         '-', '-', '2023-04-21 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >456</Link>], 
+        [<Link to='/client' >456</Link>],
         [<ChatBubbleIcon key='Bill' />, 'Bill'],
         'Type1', '-', '2023-03-11 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >5566</Link>], 
+        [<Link to='/client' >5566</Link>],
         [<ChatBubbleIcon key='Clark' />, 'Clark'],
         'Type1', '-', '2023-03-10 15:25:36'),
 ];
@@ -56,13 +56,11 @@ export default function AssignedClients() {
             color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
-                height: 50,
-            }}>
+            <Paper variant="outlined" square className={homeScss["title-block"]}>
                 <h2>{title}</h2>
             </Paper>
 
-            <Paper variant="outlined"  square sx={{
+            <Paper variant="outlined" square sx={{
                 height: 350,
                 overflow: 'auto',
             }}>

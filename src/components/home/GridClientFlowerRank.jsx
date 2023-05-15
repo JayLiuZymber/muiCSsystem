@@ -62,9 +62,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
             color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
-                height: 50,
-            }}>
+            <Paper variant="outlined" square className={homeScss["title-block"]}>
                 <h2>{title}
                     <IconButton onClick={refreshPage}
                         aria-label="refresh page" component="label">
@@ -73,7 +71,7 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                 </h2>
             </Paper>
 
-            <Paper variant="outlined"  square sx={{
+            <Paper variant="outlined" square sx={{
                 height: 350,
                 overflow: 'auto',
             }}>

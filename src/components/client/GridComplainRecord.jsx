@@ -11,6 +11,9 @@ import TableRow from '@mui/material/TableRow';
 // icon
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+import homeScss from "assets/scss/home.module.scss";
+import {ComplainRecord} from 'utils/fakeData';
+
 const title = 'Complain Record';
 const heads = [
     'Complain',
@@ -20,21 +23,11 @@ const heads = [
     'Created',
     'Modified',
 ];
-function createData(complain, status, remark, description, created, modified) {
-    return { 
-        complain   ,
-        status     ,
-        remark     ,
-        description,
-        created    ,
-        modified   ,
-     };
-}
 const rows = [
-    createData('-', '-', '-', '-', '-', '-'),
-    createData('-', '-', '-', '-', '-', '-'),
-    createData('-', '-', '-', '-', '-', '-'),
-    createData('-', '-', '-', '-', '-', '-'),
+    ComplainRecord.createData('-', '-', '-', '-', '-', '-'),
+    ComplainRecord.createData('-', '-', '-', '-', '-', '-'),
+    ComplainRecord.createData('-', '-', '-', '-', '-', '-'),
+    ComplainRecord.createData('-', '-', '-', '-', '-', '-'),
 ];
 
 export default function GridComplainRecord() {
@@ -42,17 +35,13 @@ export default function GridComplainRecord() {
         <Stack spacing={0} sx={{
             display: 'flex',
             '& > :not(style)': {
-            width: '70vw',
-            bgcolor: '#fff',
-            color: '#5D737E',
+                width: '70vw',
+                bgcolor: '#fff',
+                color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" square sx={{
-                height: 50,
-                // alignItems: 'center',
-                // verticalAlign: 'middle',
-            }}>
-                <h2 style={{ paddingLeft: "20px" }}>{title}</h2>
+            <Paper variant="outlined" square className={homeScss["title-block"]}>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined" square sx={{

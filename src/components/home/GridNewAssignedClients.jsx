@@ -56,16 +56,16 @@ export default function GridNewAssignedClients() {
                 color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
-                height: 50,
-            }}>
+            <Paper variant="outlined" square className={homeScss["title-block"]}>
                 <h2>{title}</h2>
             </Paper>
 
-            <Paper variant="outlined" square sx={{
-                height: 350,
-                overflow: 'auto',
-            }}>
+            <Paper variant="outlined" square
+                // className={homeScss["table-block"]}
+                sx={{
+                    height: 350,
+                    overflow: 'auto',
+                }}>
                 <TableContainer component={Paper}>
                     <Table aria-label="simple table">
                         <TableHead>

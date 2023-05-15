@@ -52,9 +52,7 @@ export default function ClientAD() {
                 color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" className={homeScss["title-block"]} square sx={{
-                height: 50,
-            }}>
+            <Paper variant="outlined" square className={homeScss["title-block"]}>
                 <h2>{title}</h2>
             </Paper>
 

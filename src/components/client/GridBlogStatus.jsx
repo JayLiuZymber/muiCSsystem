@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 // icon
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+import homeScss from "assets/scss/home.module.scss";
 import {Status} from 'utils/fakeData';
 
 const title = 'Blog Status';
@@ -36,10 +37,8 @@ export default function GridBlogStatus() {
                 color: '#5D737E',
             },
         }}>
-            <Paper variant="outlined" square sx={{
-                height: 50,
-            }}>
-                <h2 style={{ paddingLeft: "20px" }}>{title}</h2>
+            <Paper variant="outlined" square className={homeScss["title-block"]}>
+                <h2>{title}</h2>
             </Paper>
 
             <Paper variant="outlined" square sx={{
