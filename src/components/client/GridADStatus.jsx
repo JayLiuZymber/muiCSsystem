@@ -13,10 +13,11 @@ import TableRow from '@mui/material/TableRow';
 
 import homeScss from "assets/scss/home.module.scss";
 import {Status} from 'utils/fakeData';
+import CustomNoRowsOverlay from 'components/CustomDateGrid';
 
 const title = 'AD Status';
 const heads = [
-    'Status', 
+    'Status',
     'Update'
 ];
 const rows = [
@@ -56,9 +57,9 @@ export default function GridADStatus() {
                     </TableHead>
                     <TableBody>
                     {rows.map((row) => (
-                        <TableRow 
-                        key={row.update}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        <TableRow
+                            key={row.update}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align='center'>{row.status}</TableCell>
                         <TableCell align='center'>{row.update}</TableCell>

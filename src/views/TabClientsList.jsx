@@ -17,6 +17,8 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import SearchIcon from '@mui/icons-material/Search';
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
+import CustomNoRowsOverlay from 'components/CustomDateGrid';
+
 const VISIBLE_FIELDS = ['mobile', 'name', 'type', 'region2'];
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
@@ -164,7 +166,8 @@ export default function TabClientsList() {
           />
           <SearchIcon sx={{my:2}}/>
         </Grid>
-      </Grid>      
+      </Grid>
+      <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -186,8 +189,11 @@ export default function TabClientsList() {
         pageSizeOptions={[10, 20, 50]}
         // checkboxSelection
         disableRowSelectionOnClick
-        // slots={{ toolbar: GridToolbar }}
+        slots={{
+          noRowsOverlay: CustomNoRowsOverlay,
+        }}
       />
+      </div>
     </Box>
   );
 }

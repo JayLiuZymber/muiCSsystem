@@ -15,12 +15,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Button from '@mui/material/Button';
 
+import CustomNoRowsOverlay from 'components/CustomDateGrid';
+
 // Status Reason Timestamp
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
   {
-    field: 'status', 
-    headerName: 'Status', 
+    field: 'status',
+    headerName: 'Status',
     width: 200,
     // editable: true,
     headerAlign: 'center',
@@ -65,7 +67,6 @@ const Item = styled(Paper)(({ theme }) => ({
   flexGrow: 1,
 }));
 
-
 export default function LoginLogs () {
     const defaultProps = {
       options: rows.reason,
@@ -76,10 +77,10 @@ export default function LoginLogs () {
     };
     const [dateStart, setDateStart] = React.useState(dayjs('2022-04-17'));
     const [dateEnd, setDateEnd] = React.useState(dayjs());
-    
+
   return (
     <Box sx={{ minHeight: 520, width:'70vw', m:2, color:'#5D737E'}}>
-      {/* <Box sx={{ height: 400, width: '70vw' }}> */}
+    {/* <Box sx={{ height: 400, width: '70vw' }}> */}
       <Grid container rowSpacing={0}>
         <Grid display="flex" xs={12} sm={12}>
           <h3>Login Logs ({rows.length})</h3>
@@ -102,7 +103,11 @@ export default function LoginLogs () {
           <Button variant="outlined" sx={{m:2}}>Filter</Button>
         </Grid>
       </Grid>
+      <div style={{ height: 400, width: '100%' }}>
       <DataGrid
+        slots={{
+          noRowsOverlay: CustomNoRowsOverlay,
+        }}
         rows={rows}
         columns={columns}
         initialState={{
@@ -116,7 +121,7 @@ export default function LoginLogs () {
         // checkboxSelection
         disableRowSelectionOnClick
       />
-    {/* </Box> */}
+    </div>
     </Box>
   );
 };
