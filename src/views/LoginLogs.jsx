@@ -1,4 +1,5 @@
 import React from 'react';
+import dayjs from 'dayjs';
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
 // import Tab from '@mui/material/Tab';
@@ -9,6 +10,10 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { DataGrid } from '@mui/x-data-grid';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import Button from '@mui/material/Button';
 
 // Status Reason Timestamp
 const columns = [
@@ -69,7 +74,8 @@ export default function LoginLogs () {
       const flatProps = {
       options: rows.map((option) => option.status),
     };
-    const [value, setValue] = React.useState(null);
+    const [dateStart, setDateStart] = React.useState(dayjs('2022-04-17'));
+    const [dateEnd, setDateEnd] = React.useState(dayjs());
     
   return (
     <Box sx={{ minHeight: 520, width:'70vw', m:2, color:'#5D737E'}}>
@@ -80,6 +86,20 @@ export default function LoginLogs () {
         </Grid>
         <Grid display="flex" xs={12} sm={12}>
           <h4>Duration</h4>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              value={dateStart}
+              onChange={(newValue) => setDateStart(newValue)}
+            />
+          </LocalizationProvider>
+          <h4>～</h4>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+              value={dateEnd}
+              onChange={(newValue) => setDateEnd(newValue)}
+            />
+          </LocalizationProvider>
+          <Button variant="outlined" sx={{m:2}}>Filter</Button>
         </Grid>
       </Grid>
       <DataGrid
