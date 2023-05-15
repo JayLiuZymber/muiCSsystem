@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
-import FakeData from "utils/fakeData";
+import {FakeData} from "utils/fakeData";
 
 const title = 'New Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2', 'Created'];

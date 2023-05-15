@@ -27,4 +27,4 @@ class ClientRank {
 }
 }
 
-export default FakeData
+export {FakeData,Client,Status,ClientRank}

@@ -12,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 
 import homeScss from "assets/scss/home.module.scss";
-import FakeData from "utils/fakeData";
+import {FakeData} from "utils/fakeData";
 
 const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
