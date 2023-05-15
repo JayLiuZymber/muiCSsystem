@@ -12,6 +12,8 @@ import IconButton from '@mui/material/IconButton';
 // icon
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 import RefreshIcon from '@mui/icons-material/RefreshOutlined';
+// router
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
 import {ClientRank} from 'utils/fakeData';
@@ -19,11 +21,16 @@ import {ClientRank} from 'utils/fakeData';
 const title = 'Client Heart Rank';
 const heads = ['#', 'Post ID', 'Mobile'];
 const rows = [
-    ClientRank.createData('#1', '1', '1122'),
-    ClientRank.createData('#2', '15', '2233'),
-    ClientRank.createData('#10', '12', '334455'),
-    ClientRank.createData('#15', '25', '456'),
-    ClientRank.createData('#19', '88', '5566'),
+    ClientRank.createData('#1', '1', 
+    [<Link to='/client' >1122</Link>]),
+    ClientRank.createData('#2', '15', 
+    [<Link to='/client' >2233</Link>]),
+    ClientRank.createData('#10', '12', 
+    [<Link to='/client' >334455</Link>]),
+    ClientRank.createData('#15', '25', 
+    [<Link to='/client' >456</Link>]),
+    ClientRank.createData('#19', '88', 
+    [<Link to='/client' >5566</Link>]),
 ];
 
 export default function ClientHeartRank() {

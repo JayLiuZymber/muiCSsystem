@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // icon
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+// router
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
 import {ClientStatus} from 'utils/fakeData';
@@ -17,11 +19,21 @@ import {ClientStatus} from 'utils/fakeData';
 const title = 'Client Blog OFF';
 const heads = ['Mobile', 'Status'];
 const rows = [
-    ClientStatus.createData('1122', '-'),
-    ClientStatus.createData('2233', 'OFF'),
-    ClientStatus.createData('334455', '-'),
-    ClientStatus.createData('456', '-'),
-    ClientStatus.createData('5566', '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >1122</Link>],
+        '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >2233</Link>],
+        'OFF'),
+    ClientStatus.createData(
+        [<Link to='/client' >334455</Link>],
+        '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >456</Link>],
+        '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >5566</Link>],
+        '-'),
 ];
 
 export default function ClientBlog() {

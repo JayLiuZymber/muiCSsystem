@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // icon
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+// router
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
 import {ClientStatus} from 'utils/fakeData';
@@ -17,13 +19,27 @@ import {ClientStatus} from 'utils/fakeData';
 const title = 'Client AD OFF/REST';
 const heads = ['Mobile', 'Status'];
 const rows = [
-    ClientStatus.createData('1122', 'OK'),
-    ClientStatus.createData('2233', 'OFF'),
-    ClientStatus.createData('334455', 'REST'),
-    ClientStatus.createData('456', '-'),
-    ClientStatus.createData('5566', '-'),
-    ClientStatus.createData('66', '-'),
-    ClientStatus.createData('789', '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >1122</Link>],
+            'OK'),
+    ClientStatus.createData(
+        [<Link to='/client' >2233</Link>],
+        'OFF'),
+    ClientStatus.createData(
+        [<Link to='/client' >334455</Link>],
+        'REST'),
+    ClientStatus.createData(
+        [<Link to='/client' >456</Link>],
+        '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >5566</Link>],
+        '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >66</Link>],
+        '-'),
+    ClientStatus.createData(
+        [<Link to='/client' >789</Link>],
+        '-'),
 ];
 
 export default function ClientAD() {
