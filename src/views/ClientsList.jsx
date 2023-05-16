@@ -52,7 +52,7 @@ export default function ClientsList () {
   };
 
   return (
-    <Box sx={{ minHeight: 520, width: '100%' }}>
+    <Box sx={{ width: '100%', minHeight: '100vh' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           {tabLabel.map((label, index) => (

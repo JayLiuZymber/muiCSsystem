@@ -79,7 +79,7 @@ export default function LoginLogs () {
     const [dateEnd, setDateEnd] = React.useState(dayjs());
 
   return (
-    <Box sx={{ minHeight: 520, width:'70vw', m:2, color:'#5D737E'}}>
+    <Box sx={{ width:'70vw', minHeight: '100vh', m:2, color:'#5D737E'}}>
     {/* <Box sx={{ height: 400, width: '70vw' }}> */}
       <Grid container rowSpacing={0}>
         <Grid display="flex" xs={12} sm={12}>

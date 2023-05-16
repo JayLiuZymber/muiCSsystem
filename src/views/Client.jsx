@@ -10,9 +10,9 @@ import TabClientDetails from './TabClientDetails';
 const tabLabel = [
     'Client Details',
     'All Balance',
-    'AD Details',
-    'CS Call Record',
-    'Instant Post Management',
+    // 'AD Details',
+    // 'CS Call Record',
+    // 'Instant Post Management',
 ];
 
 function TabPanel(props) {
@@ -56,7 +56,7 @@ export default function Client () {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', minHeight: '100vh' }}>
       <Box sx={{ borderBottom: 1,
         // borderColor: 'divider',
         }}>
@@ -72,7 +72,7 @@ export default function Client () {
       <TabPanel value={value} index={1}>
         {tabLabel[1]}
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      {/* <TabPanel value={value} index={2}>
         {tabLabel[2]}
       </TabPanel>
       <TabPanel value={value} index={3}>
@@ -80,7 +80,7 @@ export default function Client () {
       </TabPanel>
       <TabPanel value={value} index={4}>
         {tabLabel[4]}
-      </TabPanel>
+      </TabPanel> */}
     </Box>
   );
 };

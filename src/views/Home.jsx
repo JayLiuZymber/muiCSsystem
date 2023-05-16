@@ -38,7 +38,7 @@ export default function Home(props) {
 
     return (
         <>
-            <Box sx={{ flexGrow: 0, m: 2, width: '70vw', 
+            <Box sx={{ flexGrow: 0, m: 2, width: '70vw', minHeight: '100vh',
                 // bgcolor: '#fff',
                 }}>
                 <Grid container rowSpacing={2}
