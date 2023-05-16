@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 // import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-// import Stack from '@mui/material/Stack';
+import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { DataGrid } from '@mui/x-data-grid';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
@@ -86,13 +86,14 @@ export default function LoginLogs () {
         <Grid display="flex" xs={12} sm={12}>
           <h3>Login Logs ({rows.length})</h3>
         </Grid>
-        <Grid display="flex" xs={12} sm={12}>
+        <Grid display="flex" xs={12} sm={12} sx={{alignItems: 'center'}}>
           <h4>Duration</h4>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               value={dateStart}
               onChange={(newValue) => setDateStart(newValue)}
               format="YYYY-MM-DD"
+              slotProps={{ textField: { size: 'small' } }}
             />
           </LocalizationProvider>
           <h4>～</h4>
@@ -101,6 +102,7 @@ export default function LoginLogs () {
               value={dateEnd}
               onChange={(newValue) => setDateEnd(newValue)}
               format="YYYY-MM-DD"
+              slotProps={{ textField: { size: 'small' }}}
             />
           </LocalizationProvider>
           <Button variant="outlined" sx={{m:2}}>Filter</Button>
