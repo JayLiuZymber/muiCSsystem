@@ -123,49 +123,52 @@ export default function TabClientsList() {
   return (
     <Box sx={{ width: '70vw', color:'#5D737E', 
       // bgcolor: '#fff',
+      // bgcolor: '#0f0',
       }}>
-      <Grid container rowSpacing={1}>
+      <Grid container rowSpacing={1} >
         <Grid display="flex" xs={6} sm={6}>
           <h3>Clients List ({rows.length})</h3>
         </Grid>
-        <Grid display="flex" xs={6} sm={6}>
-          <Autocomplete
-            {...defaultProps}
-            sx={{
-              minWidth: 200, }}
-            id="include-input-in-list"
-            freeSolo
-            includeInputInList
-            renderOption={(props, option) => (
-              <Box component="li" {...props}>
-                {option.name} <br />
-                ({option.mobile})
-              </Box>
-            )}
-            renderInput={(params) => (
-              <TextField {...params} label="Mobile or Name" 
-                // InputProps={{
-                //   startAdornment: (
-                //     <InputAdornment position="end">
-                //       <SearchIcon />
-                //     </InputAdornment>
-                //   ),
-                // }}
-                variant="standard"
-              >
-                <GridToolbarQuickFilter
-                  quickFilterParser={(searchInput) =>
-                    searchInput
-                      .split(',')
-                      .map((value) => value.trim())
-                      .filter((value) => value !== '')
-                  }
-                />
-                </TextField>
-                
-            )}
-          />
-          <SearchIcon sx={{my:2}}/>
+        <Grid xs={6} sm={6}>
+          <Box display="flex" justifyContent="flex-end">
+            <Autocomplete
+              {...defaultProps}
+              sx={{
+                minWidth: 200, }}
+              id="include-input-in-list"
+              freeSolo
+              includeInputInList
+              renderOption={(props, option) => (
+                <Box component="li" {...props}>
+                  {option.name} <br />
+                  ({option.mobile})
+                </Box>
+              )}
+              renderInput={(params) => (
+                <TextField {...params} label="Mobile or Name" 
+                  // InputProps={{
+                  //   startAdornment: (
+                  //     <InputAdornment position="end">
+                  //       <SearchIcon />
+                  //     </InputAdornment>
+                  //   ),
+                  // }}
+                  variant="standard"
+                >
+                  <GridToolbarQuickFilter
+                    quickFilterParser={(searchInput) =>
+                      searchInput
+                        .split(',')
+                        .map((value) => value.trim())
+                        .filter((value) => value !== '')
+                    }
+                  />
+                  </TextField>
+                  
+              )}
+            />
+            <SearchIcon sx={{my:2}}/>
+          </Box>
         </Grid>
       </Grid>
       <div style={{ height: 400, width: '100%' }}>
