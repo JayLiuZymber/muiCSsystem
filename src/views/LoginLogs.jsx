@@ -87,7 +87,7 @@ export default function LoginLogs () {
           <h3>Login Logs ({rows.length})</h3>
         </Grid>
         <Grid display="flex" xs={12} sm={12} sx={{alignItems: 'center'}}>
-          <h4>Duration</h4>
+          <h4>Duration &emsp;</h4>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               value={dateStart}
