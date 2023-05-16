@@ -23,19 +23,19 @@ const rows = [
         ['-'],
         'Type1', '-', '2023-05-02 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >25388</Link>],
+        [<Link to='/client' >2538800000</Link>],
         ['-'],
         '-', '-', '2023-05-01 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >38758</Link>],
+        [<Link to='/client' >3875850111</Link>],
         ['-'],
         '-', '-', '2023-04-22 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >4858</Link>],
+        [<Link to='/client' >4858111111</Link>],
         ['-'],
         'Type1', '-', '2023-03-12 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >5859628</Link>],
+        [<Link to='/client' >5859628888</Link>],
         ['-'],
         'Type1', '-', '2023-03-02 15:25:36'),
 ];
@@ -81,10 +81,11 @@ export default function GridNewAssignedClients() {
                                     key={row.index}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell align="left" component="th" scope="row">
+                                    {/* <TableCell colSpan={1} /> */}
+                                    <TableCell align="center" component="th" scope="row">
                                         {row.mobile}
                                     </TableCell>
-                                    <TableCell align="left" sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <TableCell align="center" sx={{ display: 'flex', alignItems: 'center' }}>
                                         {row.name}
                                     </TableCell>
                                     <TableCell align="center">{row.type}</TableCell>

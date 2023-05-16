@@ -20,23 +20,23 @@ const title = 'Assigned Clients';
 const heads = ['Mobile', 'Name', 'Type', 'Region2'];
 const rows = [
     AssignedClient.createData(
-        [<Link to='/client' >1122</Link>],
+        [<Link to='/client' >1122334455</Link>],
         [<ChatBubbleIcon key='jae_hwan' />, 'jae_hwan'],
         'Type1', '-', '2023-05-04 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >2233</Link>],
+        [<Link to='/client' >2233456789</Link>],
         ['-'],
         '-', '-', '2023-05-02 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >334455</Link>],
+        [<Link to='/client' >33445566</Link>],
         [<ChatBubbleIcon key='Ace' />, 'Ace'],
         '-', '-', '2023-04-21 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >456</Link>],
+        [<Link to='/client' >45677770</Link>],
         [<ChatBubbleIcon key='Bill' />, 'Bill'],
         'Type1', '-', '2023-03-11 15:25:36'),
     AssignedClient.createData(
-        [<Link to='/client' >5566</Link>],
+        [<Link to='/client' >5566000000</Link>],
         [<ChatBubbleIcon key='Clark' />, 'Clark'],
         'Type1', '-', '2023-03-10 15:25:36'),
 ];
@@ -79,10 +79,11 @@ export default function AssignedClients() {
                         key={row.mobile}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                        <TableCell align="left" component="th" scope="row">
+                        {/* <TableCell colSpan={1} /> */}
+                        <TableCell align="center" component="th" scope="row" >
                             {row.mobile}
                         </TableCell>
-                        <TableCell align="left" sx={{display: 'flex', alignItems: 'center'}}>
+                        <TableCell align="center" sx={{display: 'flex', alignItems: 'center'}}>
                             {row.name}
                         </TableCell>
                         <TableCell align="center">{row.type}</TableCell>
