@@ -75,7 +75,8 @@ export default function LoginLogs () {
       const flatProps = {
       options: rows.map((option) => option.status),
     };
-    const [dateStart, setDateStart] = React.useState(dayjs('2022-04-17'));
+    // dayjs(`${dayjs().year()}-${dayjs().month()+1}-1`) // 1st day of current month
+    const [dateStart, setDateStart] = React.useState(dayjs().subtract(7, 'day')); // before 7 days from current date
     const [dateEnd, setDateEnd] = React.useState(dayjs());
 
   return (
@@ -91,6 +92,7 @@ export default function LoginLogs () {
             <DatePicker
               value={dateStart}
               onChange={(newValue) => setDateStart(newValue)}
+              format="YYYY-MM-DD"
             />
           </LocalizationProvider>
           <h4>～</h4>
@@ -98,6 +100,7 @@ export default function LoginLogs () {
           <DatePicker
               value={dateEnd}
               onChange={(newValue) => setDateEnd(newValue)}
+              format="YYYY-MM-DD"
             />
           </LocalizationProvider>
           <Button variant="outlined" sx={{m:2}}>Filter</Button>
