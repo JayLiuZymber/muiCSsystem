@@ -6,11 +6,12 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import TabClientDetails from './TabClientDetails';
+import TabADDetails from './TabADDetails';
 
 const tabLabel = [
     'Client Details',
     'All Balance',
-    // 'AD Details',
+    'AD Details',
     // 'CS Call Record',
     // 'Instant Post Management',
 ];
@@ -72,10 +73,10 @@ export default function Client () {
       <TabPanel value={value} index={1}>
         {tabLabel[1]}
       </TabPanel>
-      {/* <TabPanel value={value} index={2}>
-        {tabLabel[2]}
+      <TabPanel value={value} index={2}>
+        <TabADDetails></TabADDetails>
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      {/* <TabPanel value={value} index={3}>
         {tabLabel[3]}
       </TabPanel>
       <TabPanel value={value} index={4}>
