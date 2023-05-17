@@ -4,6 +4,8 @@ import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
 import MuiAlert from '@mui/material/Alert';
 
+// -----------------------------------------------------------------------------
+
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;
 }

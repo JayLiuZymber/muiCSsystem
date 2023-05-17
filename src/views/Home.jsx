@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import Paper from '@mui/material/Paper/Paper';
 // router
 import { useLocation } from "react-router-dom";
 // redux
@@ -16,7 +17,7 @@ import GridClientBlog from 'components/home/GridClientBlog';
 import GridClientFlowerRank from 'components/home/GridClientFlowerRank';
 import GridClientHeartRank from 'components/home/GridClientHeartRank';
 
-
+// -----------------------------------------------------------------------------
 export default function Home(props) {
     const location = useLocation();
     const dispatch = useDispatch();
@@ -41,8 +42,10 @@ export default function Home(props) {
             <Box sx={{ flexGrow: 0, m: 2, width: '70vw', minHeight: '100vh',
                 // bgcolor: '#fff',
                 }}>
-                <Grid container rowSpacing={2}
-                    columnSpacing={{ xs: 2, sm: 3, md: 4 }}>
+                <Grid container rowSpacing={2} 
+                    // component={Paper}
+                    columnSpacing={{ xs: 2, sm: 3, md: 4 }}
+                    >
                     <Grid display="flex" xs={12} sm={12}>
                         <GridNewAssignedClients></GridNewAssignedClients>
                     </Grid>

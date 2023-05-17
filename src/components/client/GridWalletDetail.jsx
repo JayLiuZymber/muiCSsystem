@@ -6,6 +6,8 @@ import Paper from '@mui/material/Paper';
 
 import homeScss from "assets/scss/home.module.scss";
 
+// -----------------------------------------------------------------------------
+
 const title = 'Wallet Detail';
 
 export default function GridWalletDetail(props) {

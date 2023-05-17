@@ -14,6 +14,8 @@ import TableRow from '@mui/material/TableRow';
 import homeScss from "assets/scss/home.module.scss";
 import {ComplainRecord} from 'utils/fakeData';
 
+// -----------------------------------------------------------------------------
+
 const title = 'Complain Record';
 const heads = [
     'Complain',

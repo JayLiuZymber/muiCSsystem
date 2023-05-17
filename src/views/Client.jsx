@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 import TabClientDetails from './TabClientDetails';
 import TabADDetails from './TabADDetails';
 
+// -----------------------------------------------------------------------------
+
 const tabLabel = [
     'Client Details',
     'All Balance',

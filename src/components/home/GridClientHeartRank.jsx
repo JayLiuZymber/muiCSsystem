@@ -18,6 +18,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import homeScss from "assets/scss/home.module.scss";
 import {ClientRank} from 'utils/fakeData';
 
+// -----------------------------------------------------------------------------
+
 const title = 'Client Heart Rank';
 const heads = ['#', 'Post ID', 'Mobile'];
 const rows = [

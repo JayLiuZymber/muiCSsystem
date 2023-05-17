@@ -2,6 +2,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie';
 
+// -----------------------------------------------------------------------------
+
 const initialState = {
     system_name: "CS-System",
     user_info: {

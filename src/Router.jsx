@@ -1,5 +1,15 @@
 import React from 'react';
 import App from './App';
+// router
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+// cookie
+import Cookie from "js-cookie";
 
 import Home from 'views/Home';
 import ClientsList from 'views/ClientsList';
@@ -9,14 +19,7 @@ import PageNotFound from 'views/404hit';
 // import PageNotFound from 'views/404neon';
 import Client from 'views/Client';
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
-import Cookie from "js-cookie";
+// -----------------------------------------------------------------------------
 
 function isAuth() {
   return (

@@ -10,12 +10,13 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slide from '@mui/material/Slide';
 import MuiAlert from '@mui/material/Alert';
-
 // router
 import { useNavigate, useLocation } from "react-router-dom";
 // redux
 import {  useDispatch } from "react-redux";
 import { setUserInfo, setIsLogin } from "../store/mainSlice";
+
+// -----------------------------------------------------------------------------
 
 function TransitionUp(props) {
   return <Slide {...props} direction="up" />;

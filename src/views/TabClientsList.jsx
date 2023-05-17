@@ -20,8 +20,8 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import GridNoRows from 'components/GridNoRows';
-// -----------------------------------------------------------------------------
 
+// -----------------------------------------------------------------------------
 const VISIBLE_FIELDS = ['mobile', 'name', 'type', 'region2'];
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },

@@ -15,6 +15,8 @@ import homeScss from "assets/scss/home.module.scss";
 import {Status} from 'utils/fakeData';
 import GridNoRows from 'components/GridNoRows';
 
+// -----------------------------------------------------------------------------
+
 const title = 'AD Status';
 const heads = [
     'Status',

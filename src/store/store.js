@@ -3,6 +3,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import mainReducer from './mainSlice'
 // import themeSlice from './themeSlice'
 
+// -----------------------------------------------------------------------------
+
 export const store = configureStore({
   reducer: {
     // drawer: drawerReducer,

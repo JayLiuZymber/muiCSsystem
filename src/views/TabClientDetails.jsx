@@ -10,6 +10,7 @@ import GridComplainRecord from 'components/client/GridComplainRecord';
 import GridADStatus from 'components/client/GridADStatus';
 import GridBlogStatus from 'components/client/GridBlogStatus';
 
+// -----------------------------------------------------------------------------
 export default function TabClientDetails(props) {
     return (
         <div>

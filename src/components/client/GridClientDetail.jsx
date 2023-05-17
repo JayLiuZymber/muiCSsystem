@@ -6,6 +6,8 @@ import Paper from '@mui/material/Paper';
 
 import homeScss from "assets/scss/home.module.scss";
 
+// -----------------------------------------------------------------------------
+
 const title = 'Client Detail';
 
 export default function GridClientDetail(props) {

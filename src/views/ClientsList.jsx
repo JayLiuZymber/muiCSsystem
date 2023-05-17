@@ -7,6 +7,8 @@ import Box from '@mui/material/Box';
 
 import TabClientsList from './TabClientsList';
 
+// -----------------------------------------------------------------------------
+
 const tabLabel = [
   'Clients List',
 ];

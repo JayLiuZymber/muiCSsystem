@@ -18,6 +18,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import homeScss from "assets/scss/home.module.scss";
 import {ClientStatus} from 'utils/fakeData';
 
+// -----------------------------------------------------------------------------
+
 const title = 'Client Flower Rank';
 const heads = ['Mobile', 'Status'];
 const rows = [

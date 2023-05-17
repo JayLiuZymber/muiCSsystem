@@ -12,6 +12,7 @@ import SideList from "components/SideList";
 import TopBar from "components/TopBar";
 // import BottomBar from "components/BottomBar";
 
+// -----------------------------------------------------------------------------
 function App() {
   const isSnackbarOpen = useSelector((state) => state.main.snackbar.isOpen);
   const snackbarMsg = useSelector((state) => state.main.snackbar.msg);
