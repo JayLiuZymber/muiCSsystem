@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid,
   GridToolbar,
@@ -8,7 +8,7 @@ import { useDemoData } from '@mui/x-data-grid-generator';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Paper from '@mui/material/Paper';
-// import Stack from '@mui/material/Stack';
+import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 // import InputAdornment from '@mui/material/InputAdornment';
@@ -82,13 +82,13 @@ function cellName(params) {
   );
 }
 
-const rows = [
+const data = [
   { id: 1, mobile: '12111111', name: 'Snow', type: 'Type1', region2: '-' },
   { id: 2, mobile: '2333333', name: 'Lannister', type: '-', region2: '-' },
   { id: 3, mobile: '34358888', name: 'Lannister', type: '-', region2: '-' },
   { id: 4, mobile: '43222222', name: 'Stark', type: '-', region2: '-' },
   { id: 5, mobile: '56000025', name: 'Targaryen', type: '-', region2: '-' },
-  { id: 6, mobile: '6805255', name: '-', type: '-', region2: '-' },
+  { id: 6, mobile: '6805255', name: 'D', type: '-', region2: '-' },
   { id: 7, mobile: '725828', name: 'Clifford', type: '-', region2: '-' },
   { id: 8, mobile: '89888222', name: 'Frances', type: '-', region2: '-' },
   { id: 9, mobile: '90018888', name: 'Roxie', type: '-', region2: '-' },
@@ -109,45 +109,65 @@ export default function TabClientsList() {
   // console.log('state', state);
   const navigate = useNavigate();
 
+  const [searchText, setSearchText] = useState("");
+  const [rowsData, setrowsData] = useState(data);
+  function escapeRegExp(value) {
+    return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  }
+
+  const requestSearch = (searchValue) => {
+    setSearchText(searchValue);
+    const searchRegex = new RegExp(escapeRegExp(searchValue), "i");
+    const filteredRows = data.filter((row) => {
+      return Object.keys(row).some((field) => {
+        return searchRegex.test(row[field].toString());
+      });
+    });
+    setrowsData(filteredRows);
+  };
+  
   const defaultProps = {
-    options: rows,
+    options: data,
     getOptionLabel: (option) => [option.name, option.mobile]
   };
-  // const flatProps = {
-  //   options: rows.map((option) => option.mobile),
-  // };
-  // const [value, setValue] = React.useState(null);
 
-  // console.log('VISIBLE_FIELDS', VISIBLE_FIELDS);
-  const { data } = useDemoData({
-    dataSet: 'Employee',
-    visibleFields: VISIBLE_FIELDS,
-    // rowLength: 100,
-  });
-
-  const filterColumns = React.useMemo(
-    () =>
-      data.columns
-        .filter((column) => VISIBLE_FIELDS.includes(column.field))
-        .map((column) => {
-          if (column.field === 'name') {
-            return {
-              ...column,
-              // getApplyQuickFilterFn: column.value,
-            };
-          }
-          if (column.field === 'region2' ||
-              column.field === 'type' ) {
-            return {
-              ...column,
-              getApplyQuickFilterFn: undefined,
-            };
-          }
-          return column;
-        }),
-    [data.columns],
-  );
-
+  function SearchField(props) {
+    return (
+      <Stack spacing={2} sx={{ width: 300 }}>
+        <Autocomplete
+          // {...defaultProps}
+          // renderOption={(props, option) => (
+          //   <Box component="li" {...props}>
+          //     {option.name} <br />
+          //     ({option.mobile})
+          //   </Box>
+          // )}
+          freeSolo
+          includeInputInList
+          disableClearable
+          value={props.value}
+          options={data.map((option) => option.name )}
+          onChange={(event, value) => {
+            requestSearch(value);
+          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              variant="standard"
+              // placeholder="Search"
+              label="Mobile or Name"
+              InputProps={{
+                ...params.InputProps,
+                type: "search",
+                endAdornment: <SearchIcon fontSize="small" />,
+              }}
+            />
+          )}
+        />
+      </Stack>
+    );
+  }
+  
   return (
     <Box sx={{ width: '70vw', color:'#5D737E',
       // bgcolor: '#fff',
@@ -155,66 +175,46 @@ export default function TabClientsList() {
       }}>
       <Grid container rowSpacing={1} >
         <Grid display="flex" xs={6} sm={6}>
-          <h3>Clients List ({rows.length})</h3>
+          <h3>Clients List ({data.length})</h3>
         </Grid>
         <Grid xs={6} sm={6}>
           <Box display="flex" justifyContent="flex-end">
-            <Autocomplete
-              {...defaultProps}
-              sx={{
-                minWidth: 200, }}
-              id="include-input-in-list"
-              freeSolo
-              includeInputInList
-              renderOption={(props, option) => (
-                <Box component="li" {...props}>
-                  {option.name} <br />
-                  ({option.mobile})
-                </Box>
-              )}
-              renderInput={(params) => (
-                <TextField {...params} label="Mobile or Name"
-                  // InputProps={{
-                  //   startAdornment: (
-                  //     <InputAdornment position="end">
-                  //       <SearchIcon />
-                  //     </InputAdornment>
-                  //   ),
-                  // }}
-                  variant="standard"
-                >
-                  <GridToolbarQuickFilter
-                    quickFilterParser={(searchInput) =>
-                      searchInput
-                        .split(',')
-                        .map((value) => value.trim())
-                        .filter((value) => value !== '')
-                    }
-                  />
-                  </TextField>
-
-              )}
-            />
-            <SearchIcon sx={{my:2}}/>
+            <SearchField />
           </Box>
         </Grid>
       </Grid>
-      <div style={{ height: 400, width: '100%' }}>
+      <div style={{ height: "80vh", width: "100%" }}>
+          <DataGrid
+            // components={{ Toolbar: SearchField }}
+            rows={rowsData}
+            columns={columns}
+            getRowId={(row) => row.name}
+            // pageSize={10}
+            rowsPerPageOptions={[10, 20, 50]}
+            checkboxSelection
+            // onSelectionModelChange={(newSelectionModel) => {
+            //   setSelectionModel(newSelectionModel);
+            // }}
+            // selectionModel={selectionModel}
+            componentsProps={{
+              toolbar: {
+                value: searchText,
+                onChange: (event) => requestSearch(event.target.value),
+                clearSearch: () => requestSearch(""),
+              },
+            }}
+          />
+        </div>
+        {/* orgin */}
+      {/* <div style={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={rowsData}
         columns={columns}
         initialState={{
           pagination: {
             paginationModel: {
               page: 0,
               pageSize: 10,
-            },
-          },
-          filter: {
-            ...data.initialState?.filter,
-            filterModel: {
-              items: [],
-              quickFilterLogicOperator: GridLogicOperator.Or,
             },
           },
         }}
@@ -237,7 +237,7 @@ export default function TabClientsList() {
         // checkboxSelection
         disableRowSelectionOnClick
       />
-      </div>
+      </div> */}
     </Box>
   );
 }
