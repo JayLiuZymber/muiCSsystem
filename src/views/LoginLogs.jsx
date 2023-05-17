@@ -14,10 +14,12 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography/Typography';
 
 import GridNoRows from 'components/GridNoRows';
 
 // -----------------------------------------------------------------------------
+
 // Status Reason Timestamp
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
@@ -28,6 +30,7 @@ const columns = [
     // editable: true,
     headerAlign: 'center',
     align: 'center',
+    renderCell: cellStatusColor,
   },
   {
     field: 'reason',
@@ -46,6 +49,31 @@ const columns = [
     align: 'center',
   },
 ];
+
+function cellStatusColor(params) {
+  let fontColor = '';
+  switch(params.value) {
+    case 'Success':
+      fontColor = '#64B6AC'
+      break;
+    case 'Failed':
+      fontColor = '#ED7C41'
+      break;
+  }
+
+  if( fontColor!=='' ) {
+    return (
+      <Typography color={fontColor}>
+        {params.value}
+      </Typography>
+    );
+  }
+  // else {
+  //   return (
+  //   <>{params.value}</>
+  //   );
+  // }
+}
 
 const rows = [
   { id: 1, status: 'Success', reason: '-', timestamp: '2023-05-10 11:02:03'},

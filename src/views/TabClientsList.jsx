@@ -32,15 +32,7 @@ const columns = [
     // editable: true,
     headerAlign: 'center',
     align: 'center',
-    renderCell: (params) => {
-      return (
-        <>
-          <Link to='/client' >
-            {params.value}
-          </Link>
-        </>
-      );
-    }
+    renderCell: cellMobile,
   },
   {
     field: 'name',
@@ -49,15 +41,7 @@ const columns = [
     // editable: true,
     headerAlign: 'center',
     // align: 'center',
-    renderCell: (params) => {
-      return (
-        <>
-        {/* <div className="d-flex justify-content-between align-items-center" style={{ cursor: "pointer" }}> */}
-          <ChatBubbleIcon />{params.value}
-        {/* </div> */}
-        </>
-      );
-    }
+    renderCell: cellName,
   },
   {
     field: 'type',
@@ -76,6 +60,26 @@ const columns = [
     align: 'center',
   },
 ];
+
+function cellMobile(params) {
+  return (
+    <>
+      <Link to='/client' >
+        {params.value}
+      </Link>
+    </>
+  );
+}
+
+function cellName(params) {
+  return (
+    <>
+    {/* <div className="d-flex justify-content-between align-items-center" style={{ cursor: "pointer" }}> */}
+      <ChatBubbleIcon />{params.value}
+    {/* </div> */}
+    </>
+  );
+}
 
 const rows = [
   { id: 1, mobile: '12111111', name: 'Snow', type: 'Type1', region2: '-' },
