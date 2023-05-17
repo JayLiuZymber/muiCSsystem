@@ -13,6 +13,7 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 // import InputAdornment from '@mui/material/InputAdornment';
 // import IconButton from '@mui/material/IconButton';
+import LinearProgress from '@mui/material/LinearProgress';
 // icon
 import SearchIcon from '@mui/icons-material/Search';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -220,6 +221,7 @@ export default function TabClientsList() {
         pageSizeOptions={[10, 20, 50]}
         slots={{
           noRowsOverlay: GridNoRows,
+          loadingOverlay: LinearProgress,          
           // toolbar: GridToolbar,
           toolbar: GridToolbarQuickFilter,
         }}

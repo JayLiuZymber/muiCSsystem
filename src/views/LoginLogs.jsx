@@ -15,6 +15,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography/Typography';
+import LinearProgress from '@mui/material/LinearProgress';
 
 import GridNoRows from 'components/GridNoRows';
 
@@ -141,6 +142,7 @@ export default function LoginLogs () {
       <DataGrid
         slots={{
           noRowsOverlay: GridNoRows,
+          loadingOverlay: LinearProgress,
         }}
         rows={rows}
         columns={columns}
