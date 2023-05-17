@@ -16,30 +16,42 @@ import RefreshIcon from '@mui/icons-material/RefreshOutlined';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import homeScss from "assets/scss/home.module.scss";
-import {ClientStatus} from 'utils/fakeData';
+import {ClientFlower} from 'utils/fakeData';
 
 // -----------------------------------------------------------------------------
 
 const title = 'Client Flower Rank';
-const heads = ['Mobile', 'Status'];
+const heads = ['#', 'Mobile', 'Name', 'Flower'];
 const rows = [
-    ClientStatus.createData(
+    ClientFlower.createData(
+        '-',
         [<Link to='/client' >1122</Link>], 
+        'asdsadd',
         'OK'),
-    ClientStatus.createData(
+    ClientFlower.createData(
+        '-',
         [<Link to='/client' >2233</Link>], 
+        'bbbbb',
         'OFF'),
-    ClientStatus.createData(
+    ClientFlower.createData(
+        '-',
         [<Link to='/client' >334455</Link>], 
+        'cccdd',
         'REST'),
-    ClientStatus.createData(
-        [<Link to='/client' >456</Link>], 
+    ClientFlower.createData(
+        '-',
+        [<Link to='/client' >456</Link>],
+        'dddfefefewf', 
         '-'),
-    ClientStatus.createData(
-        [<Link to='/client' >5566</Link>], 
+    ClientFlower.createData(
+        '-',
+        [<Link to='/client' >5566</Link>],
+        'eeeeeeeefe', 
         '-'),
-    ClientStatus.createData(
-        [<Link to='/client' >78</Link>], 
+    ClientFlower.createData(
+        '-',
+        [<Link to='/client' >78</Link>],
+        'fffffwwww', 
         '-'),
 ];
 
@@ -89,13 +101,15 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_
                     <TableBody>
                     {rows.map((row) => (
                         <TableRow
-                        key={row.mobile}
+                        key={row.hashtag}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align="left" component="th" scope="row">
-                            {row.mobile}
+                            {row.hashtag}
                         </TableCell>
-                        <TableCell align='center'>{row.status}</TableCell>
+                        <TableCell align='left'>{row.mobile}</TableCell>
+                        <TableCell align='center'>{row.name}</TableCell>
+                        <TableCell align='center'>{row.flower}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

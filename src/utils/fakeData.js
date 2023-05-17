@@ -20,6 +20,13 @@ class ClientStatus {
     }
 }
 
+class ClientFlower {
+    // # Mobile Name Flower
+    static createData(hashtag, mobile, name, flower) {
+        return { hashtag, mobile, name, flower };
+    }
+}
+
 class ClientRank {
     // # Post ID Mobile
     static createData(hashtag, postid, mobile) {
@@ -50,4 +57,4 @@ class ComplainRecord {
 }
  
 
-export { AssignedClient, ClientStatus, ClientRank, Status, ComplainRecord }
+export { AssignedClient, ClientStatus, ClientFlower, ClientRank, Status, ComplainRecord }
