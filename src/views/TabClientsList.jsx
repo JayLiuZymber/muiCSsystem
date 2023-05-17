@@ -15,7 +15,9 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 // import IconButton from '@mui/material/IconButton';
 // icon
 import SearchIcon from '@mui/icons-material/Search';
-// import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
+// router
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import CustomNoRowsOverlay from 'components/CustomDateGrid';
 // -----------------------------------------------------------------------------
@@ -30,6 +32,15 @@ const columns = [
     // editable: true,
     headerAlign: 'center',
     align: 'center',
+    renderCell: (params) => {
+      return (
+        <>
+          <Link to='/client' >
+            {params.value}
+          </Link>
+        </>
+      );
+    }
   },
   {
     field: 'name',
@@ -38,6 +49,15 @@ const columns = [
     // editable: true,
     headerAlign: 'center',
     // align: 'center',
+    renderCell: (params) => {
+      return (
+        <>
+        {/* <div className="d-flex justify-content-between align-items-center" style={{ cursor: "pointer" }}> */}
+          <ChatBubbleIcon />{params.value}
+        {/* </div> */}
+        </>
+      );
+    }
   },
   {
     field: 'type',
@@ -57,21 +77,19 @@ const columns = [
   },
 ];
 
-// todo mobile: <Link to='/client' >xxx</Link>
-// todo name: [<ChatBubbleIcon /> ,'xxx']
 const rows = [
-  { id: 1, mobile: '12', name: 'Snow', type: 'Type1', region2: '-' },
-  { id: 2, mobile: '2', name: 'Lannister', type: '-', region2: '-' },
-  { id: 3, mobile: '3435', name: 'Lannister', type: '-', region2: '-' },
-  { id: 4, mobile: '43', name: 'Stark', type: '-', region2: '-' },
-  { id: 5, mobile: '56', name: 'Targaryen', type: '-', region2: '-' },
-  { id: 6, mobile: '68', name: '-', type: '-', region2: '-' },
-  { id: 7, mobile: '7', name: 'Clifford', type: '-', region2: '-' },
-  { id: 8, mobile: '89', name: 'Frances', type: '-', region2: '-' },
-  { id: 9, mobile: '9001', name: 'Roxie', type: '-', region2: '-' },
-  { id: 10, mobile: '1011', name: 'A', type: '-', region2: '-' },
-  { id: 11, mobile: '1101', name: 'B', type: '-', region2: '-' },
-  { id: 13, mobile: '1301', name: 'C', type: '-', region2: '-' },
+  { id: 1, mobile: '12111111', name: 'Snow', type: 'Type1', region2: '-' },
+  { id: 2, mobile: '2333333', name: 'Lannister', type: '-', region2: '-' },
+  { id: 3, mobile: '34358888', name: 'Lannister', type: '-', region2: '-' },
+  { id: 4, mobile: '43222222', name: 'Stark', type: '-', region2: '-' },
+  { id: 5, mobile: '56000025', name: 'Targaryen', type: '-', region2: '-' },
+  { id: 6, mobile: '6805255', name: '-', type: '-', region2: '-' },
+  { id: 7, mobile: '725828', name: 'Clifford', type: '-', region2: '-' },
+  { id: 8, mobile: '89888222', name: 'Frances', type: '-', region2: '-' },
+  { id: 9, mobile: '90018888', name: 'Roxie', type: '-', region2: '-' },
+  { id: 10, mobile: '10118508', name: 'A', type: '-', region2: '-' },
+  { id: 11, mobile: '11010005', name: 'B', type: '-', region2: '-' },
+  { id: 13, mobile: '13010505', name: 'C', type: '-', region2: '-' },
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -81,6 +99,11 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function TabClientsList() {
+  // router
+  const { state } = useLocation();
+  // console.log('state', state);
+  const navigate = useNavigate();
+  
   const defaultProps = {
     options: rows,
     getOptionLabel: (option) => [option.name, option.mobile]
@@ -191,11 +214,10 @@ export default function TabClientsList() {
           },
         }}
         pageSizeOptions={[10, 20, 50]}
-        // checkboxSelection
-        disableRowSelectionOnClick
         slots={{
           noRowsOverlay: CustomNoRowsOverlay,
-          toolbar: GridToolbar,
+          // toolbar: GridToolbar,
+          toolbar: GridToolbarQuickFilter,
         }}
         slotProps={{
           toolbar: {
@@ -203,9 +225,11 @@ export default function TabClientsList() {
             quickFilterProps: { debounceMs: 500 },
           },
         }}
-        disableColumnFilter
+        // disableColumnFilter
         disableColumnSelector
         disableDensitySelector
+        // checkboxSelection
+        disableRowSelectionOnClick
       />
       </div>
     </Box>

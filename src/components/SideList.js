@@ -100,7 +100,8 @@ export default function SideList() {
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
+          <ListSubheader // sx={{ justifyContent: 'center', }} //not work
+            component="div" id="nested-list-subheader">
             <h2>{title} </h2>
           </ListSubheader>
         }
