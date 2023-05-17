@@ -80,9 +80,9 @@ const rows = [
   { id: 1, status: 'Success', reason: '-', timestamp: '2023-05-10 11:02:03'},
   { id: 2, status: 'Success', reason: '-', timestamp: '2023-05-09 11:02:03'},
   { id: 3, status: 'Success', reason: '-', timestamp: '2023-05-08 11:02:03'},
-  { id: 4, status: 'Success', reason: '-', timestamp: '2023-05-06 22:02:03'},
+  { id: 4, status: 'Failed', reason: "Wrong 'password'", timestamp: '2023-05-06 22:02:03'},
   { id: 5, status: 'Success', reason: '-', timestamp: '2023-05-06 11:02:03'},
-  { id: 6, status: 'Failed', reason: "Wrong 'password'", timestamp:  '2023-05-05 11:02:03'},
+  { id: 6, status: 'Success', reason: '-', timestamp:  '2023-05-05 11:02:03'},
   { id: 7, status: 'Success', reason: '-', timestamp: '2023-05-03 11:02:03'},
   { id: 8, status: 'Success', reason: '-', timestamp: '2023-05-02 11:02:03'},
   { id: 9, status: 'Success', reason: '-', timestamp: '2023-05-01 11:02:03'},
@@ -138,7 +138,7 @@ export default function LoginLogs () {
           <Button variant="outlined" sx={{m:2}}>Filter</Button>
         </Grid>
       </Grid>
-      <div style={{ height: 400, width: '100%' }}>
+      <div style={{ height: 360, width: '100%' }}>
       <DataGrid
         slots={{
           noRowsOverlay: GridNoRows,
