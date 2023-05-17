@@ -78,7 +78,7 @@ export default function SideList() {
   };
 
   return (
-    <Box bgcolor="#36373F" color="#fff">
+    <Box bgcolor="#36373F" color="#fff" height={'100vh'}>
        <ThemeProvider
         theme={createTheme({
           // components: {

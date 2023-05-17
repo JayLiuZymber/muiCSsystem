@@ -2,15 +2,15 @@ import React from "react";
 import "./App.css";
 import Box from "@mui/material/Box";
 import Snackbar from "@mui/material/Snackbar";
-
-import SideList from "components/SideList";
-import TopBar from "components/TopBar";
-// import BottomBar from "components/BottomBar";
 // router
 import { Outlet } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo, setSnackbar } from "store/mainSlice";
+
+import SideList from "components/SideList";
+import TopBar from "components/TopBar";
+// import BottomBar from "components/BottomBar";
 
 function App() {
   const isSnackbarOpen = useSelector((state) => state.main.snackbar.isOpen);
@@ -19,9 +19,12 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <SideList></SideList>
-      <Box component="main" sx={{ flexGrow: 1, bgcolor:'#fff' }}>
+    <Box>
+      <Box sx={{ display: "flex", position:'fixed', top:0, left:0}}>
+        <SideList></SideList>
+      </Box>
+      
+      <Box component="main" sx={{ flexGrow: 1, position:'absolute', left: '20vw', bgcolor:'#fff' }}>
         <TopBar></TopBar>
         <Outlet />
       </Box>
