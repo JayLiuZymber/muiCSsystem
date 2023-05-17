@@ -19,15 +19,15 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutline';
 // router
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-import CustomNoRowsOverlay from 'components/CustomDateGrid';
+import GridNoRows from 'components/GridNoRows';
 // -----------------------------------------------------------------------------
 
 const VISIBLE_FIELDS = ['mobile', 'name', 'type', 'region2'];
 const columns = [
   // { field: 'id', headerName: 'ID', width: 1 },
   {
-    field: 'mobile', 
-    headerName: 'Mobile', 
+    field: 'mobile',
+    headerName: 'Mobile',
     width: 200,
     // editable: true,
     headerAlign: 'center',
@@ -103,7 +103,7 @@ export default function TabClientsList() {
   const { state } = useLocation();
   // console.log('state', state);
   const navigate = useNavigate();
-  
+
   const defaultProps = {
     options: rows,
     getOptionLabel: (option) => [option.name, option.mobile]
@@ -131,7 +131,7 @@ export default function TabClientsList() {
               // getApplyQuickFilterFn: column.value,
             };
           }
-          if (column.field === 'region2' || 
+          if (column.field === 'region2' ||
               column.field === 'type' ) {
             return {
               ...column,
@@ -144,7 +144,7 @@ export default function TabClientsList() {
   );
 
   return (
-    <Box sx={{ width: '70vw', color:'#5D737E', 
+    <Box sx={{ width: '70vw', color:'#5D737E',
       // bgcolor: '#fff',
       // bgcolor: '#0f0',
       }}>
@@ -168,7 +168,7 @@ export default function TabClientsList() {
                 </Box>
               )}
               renderInput={(params) => (
-                <TextField {...params} label="Mobile or Name" 
+                <TextField {...params} label="Mobile or Name"
                   // InputProps={{
                   //   startAdornment: (
                   //     <InputAdornment position="end">
@@ -187,7 +187,7 @@ export default function TabClientsList() {
                     }
                   />
                   </TextField>
-                  
+
               )}
             />
             <SearchIcon sx={{my:2}}/>
@@ -215,7 +215,7 @@ export default function TabClientsList() {
         }}
         pageSizeOptions={[10, 20, 50]}
         slots={{
-          noRowsOverlay: CustomNoRowsOverlay,
+          noRowsOverlay: GridNoRows,
           // toolbar: GridToolbar,
           toolbar: GridToolbarQuickFilter,
         }}

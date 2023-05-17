@@ -26,7 +26,7 @@ const StyledGridOverlay = styled('div')(({ theme }) => ({
     // },
 }));
 
-export default function CustomNoRowsOverlay() {
+export default function GridNoRows() {
     return (
         <StyledGridOverlay>
             <Box sx={{ mt: 1 }}>No data available</Box>

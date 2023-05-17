@@ -15,7 +15,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Button from '@mui/material/Button';
 
-import CustomNoRowsOverlay from 'components/CustomDateGrid';
+import GridNoRows from 'components/GridNoRows';
 
 // Status Reason Timestamp
 const columns = [
@@ -111,7 +111,7 @@ export default function LoginLogs () {
       <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         slots={{
-          noRowsOverlay: CustomNoRowsOverlay,
+          noRowsOverlay: GridNoRows,
         }}
         rows={rows}
         columns={columns}

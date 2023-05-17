@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 
 import homeScss from "assets/scss/home.module.scss";
 import {Status} from 'utils/fakeData';
-import CustomNoRowsOverlay from 'components/CustomDateGrid';
+import GridNoRows from 'components/GridNoRows';
 
 const title = 'AD Status';
 const heads = [
