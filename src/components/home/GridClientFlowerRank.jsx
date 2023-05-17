@@ -61,9 +61,11 @@ W3Schools Tryit Editor
 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tolocalestring_date_all
 */
     const pageLoadTime = new Date().toLocaleString('sv-SE'); //2023-05-08 15:23:26
-
+    
+    const [refresh, setRefresh] = React.useState(0)
     function refreshPage() {
-        window.location.reload(false);
+        // window.location.reload(false);
+        setRefresh(refresh+1);
     }
 
     return (
